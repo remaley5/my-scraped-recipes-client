@@ -11,18 +11,29 @@ function Ingredients() {
     // }
   
     useEffect(() => {
-      async function fetchData() {
         const url = 'https://www.allrecipes.com/recipe/20144/banana-banana-bread';
-        const response = await fetch('http://localhost:9000/scrape/useurl', {
+        fetch('http://localhost:9000/scrape/useurl', {
             method: 'post', 
             headers: { 'Content-Type': 'application/json'}, 
             body: JSON.stringify({url})
+        })
+        .then((response) => response.json())
+        .then((responseData) => {
+            console.log('data', responseData);
+            setIngredients(responseData.data);
         });
-        const responseData = await response.json();
-        console.log(responseData.data)
-        setIngredients(responseData.data);
-      }
-      fetchData();
+    //   async function fetchData() {
+    //     const url = 'https://www.allrecipes.com/recipe/20144/banana-banana-bread';
+    //     const response = await fetch('http://localhost:9000/scrape/useurl', {
+    //         method: 'post', 
+    //         headers: { 'Content-Type': 'application/json'}, 
+    //         body: JSON.stringify({url})
+    //     });
+    //     const responseData = await response.json();
+    //     console.log(responseData.data)
+    //     setIngredients(responseData.data);
+    //   }
+    //   fetchData();
       // callApi()
     }, [])
   
