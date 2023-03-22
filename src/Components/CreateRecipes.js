@@ -1,6 +1,6 @@
 import Ingredients from './Ingredients';
 import SearchForm from './SearchForm';
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 
 function CreateRecipes() {
     const [ingredients, setIngredients] = useState([]);
