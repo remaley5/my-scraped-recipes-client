@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 function SearchForm({updateIngredients}) {
 
     const [url, setUrl] = useState('');
-    const [ingredientList, updateIngredientList] = useState([]);
+    const [ingredients, setIngredients] = useState([]);
 
     const handleChange = (event) => {
         setUrl(event.target.value);
@@ -11,25 +11,27 @@ function SearchForm({updateIngredients}) {
 
     const scrapeRecipe = () => {
         console.log('scraping recipe');
-        async function fetchData() {
-          const url = 'https://www.allrecipes.com/recipe/20144/banana-banana-bread';
-          const response = await fetch('http://localhost:9000/scrape/useurl', {
-              method: 'post', 
-              headers: { 'Content-Type': 'application/json'}, 
-              body: JSON.stringify({url})
-          });
-          const responseData = await response.json();
-          console.log('response data', responseData.data)
-          updateIngredientList(responseData.data)
-        }
-        fetchData();
-        // callApi()
+        const url = 'https://www.allrecipes.com/recipe/20144/banana-banana-bread';
+        fetch('http://localhost:9000/scrape/useurl', {
+            method: 'post', 
+            headers: { 'Content-Type': 'application/json'}, 
+            body: JSON.stringify({url})
+        })
+        .then((response) => response.json())
+        .then((responseData) => {
+            console.log('data', responseData);
+            setIngredients([...responseData.data]);
+        }).then(() => {
+            // console.log('updating ingredients', ingredients);
+            updateIngredients(ingredients);
+        });
       };
 
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log(url);
         scrapeRecipe();
+        
     }
 
   return (
