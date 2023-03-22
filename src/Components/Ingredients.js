@@ -24,7 +24,7 @@ function Ingredients() {
       }
       fetchData();
       // callApi()
-    }, [])
+    }, []);
   
     return (
       <div className="App">
