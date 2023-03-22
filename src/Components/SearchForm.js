@@ -10,12 +10,13 @@ function SearchForm({updateIngredients}) {
     }
 
     const scrapeRecipe = () => {
-        console.log('scraping recipe');
-        const url = 'https://www.allrecipes.com/recipe/20144/banana-banana-bread';
+        console.log('scrapeRecipe url:', url);
+        const searchUrl = url;
+        console.log('scrapeRecipe searchUrl', url);
         fetch('http://localhost:9000/scrape/useurl', {
             method: 'post', 
             headers: { 'Content-Type': 'application/json'}, 
-            body: JSON.stringify({url})
+            body: JSON.stringify({url: searchUrl})
         })
         .then((response) => response.json())
         .then((responseData) => {

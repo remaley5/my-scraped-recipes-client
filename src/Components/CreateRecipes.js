@@ -6,17 +6,17 @@ function CreateRecipes() {
     const [ingredients, setIngredients] = useState([]);
 
     const updateIngredients = (ingredientList) => {
-        console.log('updatingIngredients', ingredientList)
+        // console.log('updatingIngredients', ingredientList)
         setIngredients([...ingredientList]);
-        console.log('setIngredients', ingredients);
+        // console.log('setIngredients', ingredients);
     }
 
   return (
     <div>
         <h1>Scrape Recipe</h1>
         <h2>Import your recipe</h2>
-        <h2>Ingredients</h2>
         <SearchForm updateIngredients={updateIngredients}/>
+        <h2>Ingredients</h2>
         <Ingredients ingredients={ingredients}/>
     </div>
   );
