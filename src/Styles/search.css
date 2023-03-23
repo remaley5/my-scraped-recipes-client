@@ -29,6 +29,19 @@
   padding-top: 30px;
   width: 80%;
 }
+.results li {
+  letter-spacing: 0.5px;
+  padding-top: 20px;
+}
+.results li.step {
+  display: flex;
+  flex-direction: column;
+}
+.results li.step .step-number {
+  padding-bottom: 10px;
+  font-weight: bold;
+  font-size: 25px;
+}
 
 .search-top {
   padding: 30px 30px 10px 30px;

@@ -40,6 +40,19 @@ $darker-blue: rgb(58, 58, 108);
         padding-top: 30px;
         width: 80%;
     }
+    li {
+        letter-spacing: .5px;
+        padding-top: 20px;
+    }
+    li.step {
+        display: flex;
+        flex-direction: column;
+        .step-number{
+            padding-bottom: 10px;
+            font-weight: bold;
+            font-size: 25px;
+        }
+    }
 }
 
 .search-top {
