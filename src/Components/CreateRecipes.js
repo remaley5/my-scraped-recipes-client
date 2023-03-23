@@ -1,15 +1,16 @@
 import Ingredients from './Ingredients';
+import Steps from './Steps';
 import SearchForm from './SearchForm';
 import React, {useState} from 'react';
 import '../Styles/search.css'
 
 function CreateRecipes() {
     const [ingredients, setIngredients] = useState([]);
+    const [steps, setSteps] = useState([]);
 
-    const updateIngredients = (ingredientList) => {
-        // console.log('updatingIngredients', ingredientList)
+    const updateIngredients = (ingredientList, stepList) => {
         setIngredients([...ingredientList]);
-        // console.log('setIngredients', ingredients);
+        setSteps(stepList);
     }
 
   return (
@@ -19,6 +20,7 @@ function CreateRecipes() {
         {/* <h2>Import From URL</h2> */}
             <SearchForm updateIngredients={updateIngredients}/>
         </div>
+        <Steps steps={steps}/>
         <Ingredients ingredients={ingredients}/>
     </div>
   );

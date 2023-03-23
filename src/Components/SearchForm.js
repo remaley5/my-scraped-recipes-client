@@ -5,6 +5,7 @@ function SearchForm({updateIngredients}) {
 
     const [url, setUrl] = useState('');
     const [ingredients, setIngredients] = useState([]);
+    const [steps, setSteps] = useState([]);
     const [error, setErrorMessage] = useState('');
 
     const handleChange = (event) => {
@@ -26,10 +27,11 @@ function SearchForm({updateIngredients}) {
             return response.json()
         })
         .then((responseData) => {
-            setIngredients([...responseData.data]);
+            console.log('responseData.data.steps', responseData.data.steps)
+            setIngredients([...responseData.data.ingredients]);
+            setSteps([...responseData.data.steps]);
         }).then(() => {
-            updateIngredients(ingredients);
-            setErrorMessage('');
+            updateIngredients(ingredients, steps);
         });
       };
 
