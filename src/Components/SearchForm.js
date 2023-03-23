@@ -27,11 +27,11 @@ function SearchForm({updateIngredients}) {
             return response.json()
         })
         .then((responseData) => {
-            console.log('responseData.data.steps', responseData.data.steps)
             setIngredients([...responseData.data.ingredients]);
             setSteps([...responseData.data.steps]);
         }).then(() => {
             updateIngredients(ingredients, steps);
+            setErrorMessage('');
         });
       };
 
