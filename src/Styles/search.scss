@@ -1,0 +1,54 @@
+$font-stack: Helvetica, san-serif;
+$light-pink:  rgb(251, 222, 223);
+$dark-pink: rgb(244, 189, 196);
+$darker-pink: rgb(245, 144, 158);
+$blue: rgb(152, 197, 253);
+$light-blue: rgb(216 241 253);
+$light-muted-pink: rgb(252 239 232);
+$light-tan: rgb(245 236 227);
+$red: rgb(241 11 43);
+$darker-blue: rgb(58, 58, 108);
+
+
+.results-wrap h2 {
+    width: 80%;
+    margin: auto;
+    font-size: 40px;
+    margin-top: 40px;
+    padding-bottom: 30px;
+    border-bottom: 10px solid $light-pink;
+}
+.results {
+    background-color: white;
+    //width: 80%;
+    margin: auto;
+    box-sizing: border-box;
+    padding-left: 10%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-right: 10%;
+    h3 {
+        color: $red;
+        font-size: 30px;
+        width: 90%;
+        border-bottom: 4px solid $dark-pink;
+        padding-bottom: 20px;
+    }
+    ul {
+        border-top: 4px solid $dark-pink;
+        border-left: 4px solid $dark-pink;
+        padding-top: 30px;
+        width: 80%;
+    }
+}
+
+.search-top {
+    padding: 30px 30px 10px 30px;
+    padding-left: 10%;
+    padding-right: 10%;
+    background-color: $light-blue;
+    h1 {
+        border-bottom: 5px solid $blue;
+        padding-bottom: 30px;
+    }
+}

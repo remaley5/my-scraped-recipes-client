@@ -1,6 +1,7 @@
 import Ingredients from './Ingredients';
 import SearchForm from './SearchForm';
 import React, {useState} from 'react';
+import '../Styles/search.css'
 
 function CreateRecipes() {
     const [ingredients, setIngredients] = useState([]);
@@ -13,10 +14,11 @@ function CreateRecipes() {
 
   return (
     <div>
-        <h1>Scrape Recipe</h1>
-        <h2>Import your recipe</h2>
-        <SearchForm updateIngredients={updateIngredients}/>
-        <h2>Ingredients</h2>
+        <div className="search-top">
+            <h1>Find your Recipe</h1>
+        {/* <h2>Import From URL</h2> */}
+            <SearchForm updateIngredients={updateIngredients}/>
+        </div>
         <Ingredients ingredients={ingredients}/>
     </div>
   );
