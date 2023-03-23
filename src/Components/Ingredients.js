@@ -3,7 +3,6 @@ function Ingredients({ingredients}) {
   
   return (
       <div className="results-wrap">
-        <h2>Results</h2>
         <div className="results">
           <h3>Ingredients</h3>
           <ul>

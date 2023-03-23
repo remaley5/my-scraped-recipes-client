@@ -36,7 +36,7 @@ function SearchForm({updateIngredients}) {
       };
 
     const handleSubmit = (event) => {
-        updateIngredients([]);
+        updateIngredients([], []);
         event.preventDefault();
         scrapeRecipe();
         

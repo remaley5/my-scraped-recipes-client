@@ -10,7 +10,8 @@ function CreateRecipes() {
 
     const updateIngredients = (ingredientList, stepList) => {
         setIngredients([...ingredientList]);
-        setSteps(stepList);
+        console.log('updated ingredients', stepList)
+        setSteps([...stepList]);
     }
 
   return (

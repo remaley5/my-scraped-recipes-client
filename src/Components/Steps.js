@@ -1,5 +1,5 @@
 
-function Steps({Steps}) {
+function Steps({steps}) {
   
     return (
         <div className="results-wrap">
@@ -7,9 +7,13 @@ function Steps({Steps}) {
           <div className="results">
             <h3>Steps</h3>
             <ul>
-              {/* {Steps.map((ingredient) => 
-              <li><span>{ingredient.quantity}</span> <span>{ingredient.unit}</span> <span>{ingredient.name}</span></li>)} */}
-            </ul>
+              {steps.map((step, idx) => 
+                <li>
+                    <span className="step-number">{idx + 1}. </span>
+                    <span>{step}</span>
+                </li>
+                )}
+              </ul>
           </div>
         </div>
       );
