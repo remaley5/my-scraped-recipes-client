@@ -1,0 +1,42 @@
+form.search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+form.search-form .control-wrap {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+form.search-form label {
+  font-family: Helvetica, san-serif;
+  font-weight: 700;
+  font-size: 30px;
+  color: rgb(23, 23, 49);
+}
+form.search-form input {
+  width: 100%;
+  border: 1px solid rgb(152, 197, 253);
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 5px;
+}
+form.search-form button {
+  width: 250px;
+  background-color: rgb(58, 58, 108);
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0px 0px 10px 1px white;
+}
+form.search-form .error {
+  color: rgb(241, 11, 43);
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+}
+
+/*# sourceMappingURL=forms.css.map */

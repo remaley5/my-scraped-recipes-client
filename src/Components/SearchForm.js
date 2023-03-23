@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import '../Styles/forms.css';
 
 function SearchForm({updateIngredients}) {
 
@@ -11,9 +12,7 @@ function SearchForm({updateIngredients}) {
     }
 
     const scrapeRecipe = () => {
-        console.log('scrapeRecipe url:', url);
         const searchUrl = url;
-        console.log('scrapeRecipe searchUrl', url);
         fetch('http://localhost:9000/scrape/useurl', {
             method: 'post', 
             headers: { 'Content-Type': 'application/json'}, 
@@ -27,35 +26,35 @@ function SearchForm({updateIngredients}) {
             return response.json()
         })
         .then((responseData) => {
-            console.log('data', responseData);
             setIngredients([...responseData.data]);
         }).then(() => {
-            // console.log('updating ingredients', ingredients);
             updateIngredients(ingredients);
             setErrorMessage('');
         });
       };
 
     const handleSubmit = (event) => {
+        updateIngredients([]);
         event.preventDefault();
-        console.log(url);
         scrapeRecipe();
         
     }
 
   return (
     <div>
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="url-input">URL</label>
-            <input 
-                id="url-input" 
-                name="url" 
-                type="text" 
-                autoComplete='true'
-                aria-describedby='error-message'
-                value={url}
-                onChange={handleChange}></input>
-            <button>Submit Search</button>
+        <form className="search-form" onSubmit={handleSubmit}>
+            <label htmlFor="url-input">Recipe Link</label>
+            <div className="control-wrap">
+                <input 
+                    id="url-input" 
+                    name="url" 
+                    type="text" 
+                    autoComplete='true'
+                    aria-describedby='error-message'
+                    value={url}
+                    onChange={handleChange}></input>
+                <button>Submit Search</button>
+            </div>    
             <div 
                 className="error" 
                 id="error-message">{error}</div>

@@ -1,0 +1,44 @@
+.results-wrap h2 {
+  width: 80%;
+  margin: auto;
+  font-size: 40px;
+  margin-top: 40px;
+  padding-bottom: 30px;
+  border-bottom: 10px solid rgb(251, 222, 223);
+}
+
+.results {
+  background-color: white;
+  margin: auto;
+  box-sizing: border-box;
+  padding-left: 10%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-right: 10%;
+}
+.results h3 {
+  color: rgb(241, 11, 43);
+  font-size: 30px;
+  width: 90%;
+  border-bottom: 4px solid rgb(244, 189, 196);
+  padding-bottom: 20px;
+}
+.results ul {
+  border-top: 4px solid rgb(244, 189, 196);
+  border-left: 4px solid rgb(244, 189, 196);
+  padding-top: 30px;
+  width: 80%;
+}
+
+.search-top {
+  padding: 30px 30px 10px 30px;
+  padding-left: 10%;
+  padding-right: 10%;
+  background-color: rgb(216, 241, 253);
+}
+.search-top h1 {
+  border-bottom: 5px solid rgb(152, 197, 253);
+  padding-bottom: 30px;
+}
+
+/*# sourceMappingURL=search.css.map */

@@ -1,0 +1,52 @@
+$font-stack: Helvetica, san-serif;
+$light-pink:  rgb(251, 222, 223);
+$dark-pink: rgb(244, 189, 196);
+$darker-pink: rgb(245, 144, 158);
+$blue: rgb(152, 197, 253);
+$light-blue: rgb(216 241 253);
+$light-muted-pink: rgb(252 239 232);
+$light-tan: rgb(245 236 227);
+$red: rgb(241 11 43);
+$darker-blue: rgb(58, 58, 108);
+
+
+form.search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    .control-wrap {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+    }
+    label {
+        font-family: $font-stack;
+        font-weight:700;
+        font-size: 30px;
+        color: rgb(23, 23, 49);
+    }
+    input {
+        width: 100%;
+        border: 1px solid $blue;
+        padding: 10px;
+        font-size: 20px;
+        border-radius: 5px;
+    }
+    button {
+        width: 250px;
+        background-color: $darker-blue;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+        border-radius: 5px;
+        border:none;
+        box-shadow: 0px 0px 10px 1px white;
+    }
+    .error {
+        color: $red;
+        font-weight: 600;
+        font-size: 20px;
+        letter-spacing: .5px;
+    }
+}
