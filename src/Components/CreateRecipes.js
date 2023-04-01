@@ -7,22 +7,34 @@ import '../Styles/search.css'
 function CreateRecipes() {
     const [ingredients, setIngredients] = useState([]);
     const [steps, setSteps] = useState([]);
+    const [active, setActive] = useState('SEARCH');
 
     const updateIngredients = (ingredientList, stepList) => {
         setIngredients([...ingredientList]);
-        console.log('updated ingredients', stepList)
         setSteps([...stepList]);
+    }
+
+    const handleAccept = () => {
+        setActive('EDIT');
     }
 
   return (
     <div>
-        <div className="search-top">
-            <h1>Find your Recipe</h1>
-        {/* <h2>Import From URL</h2> */}
-            <SearchForm updateIngredients={updateIngredients}/>
-        </div>
-        <Steps steps={steps}/>
-        <Ingredients ingredients={ingredients}/>
+        {active === 'SEARCH' ? (
+            <div>
+            <div className="search-top">
+                <h1>Find your Recipe</h1>
+                <SearchForm updateIngredients={updateIngredients}/>
+            </div>
+            <Steps steps={steps}/>
+            <Ingredients ingredients={ingredients}/>
+            <button onClick={handleAccept}>Accept and Edit</button>
+            </div> 
+        ) : 
+            <div>
+                <h1>Testing</h1>
+            </div>
+        }
     </div>
   );
 }

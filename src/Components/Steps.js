@@ -8,7 +8,7 @@ function Steps({steps}) {
             <h3>Steps</h3>
             <ul>
               {steps.map((step, idx) => 
-                <li className="step">
+                <li key={`step${idx + 1}`} className="step">
                     <div>
                         <span className="step-number">Step {idx + 1}: </span>
                     </div>
