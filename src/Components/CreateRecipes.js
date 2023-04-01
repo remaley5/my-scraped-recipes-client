@@ -7,12 +7,17 @@ import '../Styles/search.css'
 
 function CreateRecipes() {
     const [ingredients, setIngredients] = useState([]);
-    const [steps, setSteps] = useState([]);
+    //const [steps, setSteps] = useState([]);
+
+    // Steps are objects
+    const [steps, setSteps] = useState({});
+
     const [active, setActive] = useState('SEARCH');
 
-    const updateIngredients = (ingredientList, stepList) => {
+    const updateRecipe = (ingredientList, stepList) => {
         setIngredients([...ingredientList]);
-        setSteps([...stepList]);
+        setSteps(stepList);
+        console.log('stepList', stepList);
     }
 
     const handleAccept = () => {
@@ -25,7 +30,7 @@ function CreateRecipes() {
             <div>
             <div className="search-top">
                 <h1>Find your Recipe</h1>
-                <SearchForm updateIngredients={updateIngredients}/>
+                <SearchForm updateRecipe={updateRecipe}/>
             </div>
             <Steps steps={steps}/>
             <Ingredients ingredients={ingredients}/>
@@ -33,7 +38,7 @@ function CreateRecipes() {
             </div> 
         ) : 
             <div>
-                <RecipeEditor updateIngredients={updateIngredients} ingredients={ingredients}/>
+                <RecipeEditor updateRecipe={updateRecipe} ingredients={ingredients} steps={steps}/>
             </div>
         }
     </div>

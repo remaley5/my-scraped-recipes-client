@@ -6,8 +6,12 @@ function Ingredients({ingredients}) {
         <div className="results">
           <h3>Ingredients</h3>
           <ul>
-            {ingredients.map((ingredient, idx) => 
-            <li key={`ingredient${idx + 1}`}><span>{ingredient.quantity}</span> <span>{ingredient.unit}</span> <span>{ingredient.name}</span></li>)}
+            {Object.keys(ingredients).map((keyName) => 
+            <li key={`ingredient${keyName}`}>
+              <span>{ingredients[keyName].quantity} </span> 
+              <span>{ingredients[keyName].unit} </span> 
+              <span>{ingredients[keyName].name} </span>
+            </li>)}
           </ul>
         </div>
       </div>

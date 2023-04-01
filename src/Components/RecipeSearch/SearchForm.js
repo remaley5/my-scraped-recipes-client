@@ -1,11 +1,14 @@
 import React, {useState} from 'react';
 import '../../Styles/forms.css';
 
-function SearchForm({updateIngredients}) {
+function SearchForm({updateRecipe}) {
 
     const [url, setUrl] = useState('');
     const [ingredients, setIngredients] = useState([]);
-    const [steps, setSteps] = useState([]);
+    //const [steps, setSteps] = useState([]);
+    // Object
+    const [steps, setSteps] = useState({});
+
     const [error, setErrorMessage] = useState('');
 
     const handleChange = (event) => {
@@ -27,19 +30,34 @@ function SearchForm({updateIngredients}) {
             return response.json()
         })
         .then((responseData) => {
-            setIngredients([...responseData.data.ingredients]);
-            setSteps([...responseData.data.steps]);
+            //setIngredients([...responseData.data.ingredients]); 
+
+            /// push an object
+            const stepsArr = [...responseData.data.steps];
+            const stepsObj = {};
+            stepsArr.forEach(function(step, idx) {
+                stepsObj[idx+1] = step;
+            });
+            setSteps(stepsObj);
+
+            const ingredientsArray = [...responseData.data.ingredients];
+            const ingredientsObj = {};
+            ingredientsArray.forEach(function(ingredient, idx) {
+                ingredientsObj[idx+1] = ingredient;
+            });
+            setIngredients(ingredientsObj);
+
+            //setSteps([...responseData.data.steps]);
         }).then(() => {
-            updateIngredients(ingredients, steps);
+            updateRecipe(ingredients, steps);
             setErrorMessage('');
         });
       };
 
     const handleSubmit = (event) => {
-        updateIngredients([], []);
+        // updateRecipe({}, {});
         event.preventDefault();
         scrapeRecipe();
-        
     }
 
   return (
