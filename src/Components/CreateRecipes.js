@@ -1,6 +1,7 @@
 import Ingredients from './RecipeSearch/Ingredients';
 import Steps from './Steps';
 import SearchForm from './RecipeSearch/SearchForm';
+import RecipeEditor from './RecipeEditor';
 import React, {useState} from 'react';
 import '../Styles/search.css'
 
@@ -32,7 +33,7 @@ function CreateRecipes() {
             </div> 
         ) : 
             <div>
-                <h1>Testing</h1>
+                <RecipeEditor updateIngredients={updateIngredients} ingredients={ingredients}/>
             </div>
         }
     </div>

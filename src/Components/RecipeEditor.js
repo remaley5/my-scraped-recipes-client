@@ -1,10 +1,8 @@
 import React, {useState} from 'react';
-import '../../Styles/forms.css';
+import '../Styles/forms.css';
+import IngredientInput from './RecipeEditor/IngredientInput';
 
-function RecipeEditor({updateIngredients}) {
-
-    const handleChange = (event) => {
-    }
+function RecipeEditor({updateIngredients, ingredients}) {
 
     const handleSubmit = (event) => {
         updateIngredients([], []);
@@ -14,17 +12,9 @@ function RecipeEditor({updateIngredients}) {
   return (
     <div>
         <form className="search-form" onSubmit={handleSubmit}>
-            <label htmlFor="url-input">Recipe Link</label>
-            <div className="control-wrap">
-                <input 
-                    id="url-input" 
-                    name="url" 
-                    type="text" 
-                    autoComplete='true'
-                    aria-describedby='error-message'
-                    onChange={handleChange}></input>
-                <button>Submit Search</button>
-            </div>    
+            {ingredients.map((ingredient, idx) => 
+                <IngredientInput ingredient={ingredient} idx={idx}/>
+            )}
         </form>
     </div>
   );
