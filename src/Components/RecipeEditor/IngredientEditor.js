@@ -2,22 +2,6 @@
 import '../../Styles/forms.css';
 
 function IngredientEditor({name, unit, quantity, idx, handleIngredientChange}) {
-    // const [unit, setUnit] = useState(ingredient.unit);
-    // const [quantity, setQuantity] = useState(ingredient.quantity);
-    // const [name, setName] = useState(ingredient.name);
-
-    // const handleIngredientChange = (event) => {
-    //     console.log(event.target.name);
-    //     if(event.target.name === "unit") {
-    //         setUnit(event.target.value);
-    //         console.log('setting unit', event.target.value);
-    //     } else if(event.target.name === "name") {
-    //         setName(event.target.value);
-    //         console.log('setting ')
-    //     } else {
-    //         setQuantity(event.target.value);
-    //     }
-    // }
 
   return (
     <fieldset className="form-group">
