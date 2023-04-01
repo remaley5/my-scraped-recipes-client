@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import '../Styles/forms.css';
+import '../../Styles/forms.css';
 
 function SearchForm({updateIngredients}) {
 

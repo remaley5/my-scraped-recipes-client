@@ -1,6 +1,6 @@
-import Ingredients from './Ingredients';
+import Ingredients from './RecipeSearch/Ingredients';
 import Steps from './Steps';
-import SearchForm from './SearchForm';
+import SearchForm from './RecipeSearch/SearchForm';
 import React, {useState} from 'react';
 import '../Styles/search.css'
 
