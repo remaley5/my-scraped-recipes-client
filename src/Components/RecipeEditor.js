@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import '../Styles/forms.css';
 import IngredientEditor from './RecipeEditor/IngredientEditor';
-import StepsEditor from './RecipeEditor/StepEditor'
+import StepEditor from './RecipeEditor/StepEditor'
 
 function RecipeEditor({updateRecipe, ingredients, steps}) {
     const [updatedIngredients, setUpdatedIngredients] = useState(ingredients);
@@ -20,10 +20,21 @@ function RecipeEditor({updateRecipe, ingredients, steps}) {
 
     const handleStepChange = (event, keyname) => {
         const newStepsObj = {...updatedSteps};
-        console.log('new steps obj[keyname]', newStepsObj[keyname]);
         newStepsObj[keyname] = event.target.value;
         setUpdatedSteps(newStepsObj);
     }
+
+    // const handleIngredientDelete = (keyname) => {
+    //     const newIngObj = {...updatedIngredients};
+    //     delete newIngObj[keyname];
+    //     setUpdatedIngredients(newIngObj);
+    // }
+
+    // const handleStepDelete = (keyname) => {
+    //     const newStepsObj = {...updatedSteps};
+    //     delete newStepsObj[keyname];
+    //     setUpdatedSteps(newStepsObj);
+    // }
 
   return (
     <div>
@@ -31,14 +42,20 @@ function RecipeEditor({updateRecipe, ingredients, steps}) {
             {Object.keys(updatedIngredients).map((keyName) => 
                 <IngredientEditor 
                     key={`ingredient${keyName}`}
-                    // ingredient={ingredients[keyName]} 
-                    idx={keyName} handleIngredientChange={handleIngredientChange} 
-                    name={updatedIngredients[keyName].name} unit={updatedIngredients[keyName].unit} 
+                    idx={keyName} 
+                    name={updatedIngredients[keyName].name} 
+                    unit={updatedIngredients[keyName].unit}
                     quantity={updatedIngredients[keyName].quantity}
+                    handleIngredientChange={handleIngredientChange}
                 />
             )}
             {Object.keys(updatedSteps).map((keyName) => 
-                <StepsEditor key={`step${keyName}`} step={updatedSteps[keyName]} idx={keyName} handleStepChange={handleStepChange}/>
+                <StepEditor 
+                    key={`step${keyName}`} 
+                    step={updatedSteps[keyName]} 
+                    idx={keyName} 
+                    handleStepChange={handleStepChange} 
+                />
             )}
         </form>
     </div>

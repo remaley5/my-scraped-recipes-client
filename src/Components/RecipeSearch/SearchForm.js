@@ -4,9 +4,7 @@ import '../../Styles/forms.css';
 function SearchForm({updateRecipe}) {
 
     const [url, setUrl] = useState('');
-    const [ingredients, setIngredients] = useState([]);
-    //const [steps, setSteps] = useState([]);
-    // Object
+    const [ingredients, setIngredients] = useState({});
     const [steps, setSteps] = useState({});
 
     const [error, setErrorMessage] = useState('');
@@ -30,9 +28,6 @@ function SearchForm({updateRecipe}) {
             return response.json()
         })
         .then((responseData) => {
-            //setIngredients([...responseData.data.ingredients]); 
-
-            /// push an object
             const stepsArr = [...responseData.data.steps];
             const stepsObj = {};
             stepsArr.forEach(function(step, idx) {

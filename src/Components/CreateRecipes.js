@@ -6,14 +6,14 @@ import React, {useState} from 'react';
 import '../Styles/search.css'
 
 function CreateRecipes() {
-    const [ingredients, setIngredients] = useState([]);
+    const [ingredients, setIngredients] = useState({});
     const [steps, setSteps] = useState({});
 
     const [active, setActive] = useState('SEARCH');
 
     const updateRecipe = (ingredientList, stepList) => {
-        setIngredients(ingredientList);
-        setSteps(stepList);
+        setIngredients({...ingredientList});
+        setSteps({...stepList});
         console.log('stepList', stepList);
     }
 
