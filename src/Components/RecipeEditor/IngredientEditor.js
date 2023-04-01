@@ -1,23 +1,23 @@
-import React, {useState} from 'react';
+// import React, {useState} from 'react';
 import '../../Styles/forms.css';
 
-function IngredientEditor({ingredient, idx}) {
-    const [unit, setUnit] = useState(ingredient.unit);
-    const [quantity, setQuantity] = useState(ingredient.quantity);
-    const [name, setName] = useState(ingredient.name);
+function IngredientEditor({name, unit, quantity, idx, handleIngredientChange}) {
+    // const [unit, setUnit] = useState(ingredient.unit);
+    // const [quantity, setQuantity] = useState(ingredient.quantity);
+    // const [name, setName] = useState(ingredient.name);
 
-    const handleChange = (event) => {
-        console.log(event.target.name);
-        if(event.target.name === "unit") {
-            setUnit(event.target.value);
-            console.log('setting unit', event.target.value);
-        } else if(event.target.name === "name") {
-            setName(event.target.value);
-            console.log('setting ')
-        } else {
-            setQuantity(event.target.value);
-        }
-    }
+    // const handleIngredientChange = (event) => {
+    //     console.log(event.target.name);
+    //     if(event.target.name === "unit") {
+    //         setUnit(event.target.value);
+    //         console.log('setting unit', event.target.value);
+    //     } else if(event.target.name === "name") {
+    //         setName(event.target.value);
+    //         console.log('setting ')
+    //     } else {
+    //         setQuantity(event.target.value);
+    //     }
+    // }
 
   return (
     <fieldset className="form-group">
@@ -25,14 +25,15 @@ function IngredientEditor({ingredient, idx}) {
                 Ingredient {idx + 1}
             </legend>
             <label className="hidden-label">
-                unit for ingredient {idx + 1}
+                unit for ingredient {idx}
             </label>
             <input
                 type="text"
                 autoComplete='true'
-                onChange={handleChange}
+                onChange={(event) => handleIngredientChange(event, idx)}
                 value={unit}
                 name={'unit'}
+                keyname={idx}
                 aria-describedby={`ingredient${idx}`}
             />
         <label className="hidden-label">
@@ -41,9 +42,10 @@ function IngredientEditor({ingredient, idx}) {
         <input
             type="text"
             autoComplete='true'
-            onChange={handleChange}
+            onChange={(event) => handleIngredientChange(event, idx)}
             value={quantity}
             name={'quantity'}
+            keyname={idx}
             aria-describedby={`ingredient${idx}`}
             />
         <label className="hidden-label">
@@ -52,9 +54,10 @@ function IngredientEditor({ingredient, idx}) {
         <input
             type="text"
             autoComplete='true'
-            onChange={handleChange}
+            onChange={(event) => handleIngredientChange(event, idx)}
             value={name}
             name={'name'}
+            keyname={idx}
             aria-describedby={`ingredient${idx}`}
             /> 
     </fieldset>
