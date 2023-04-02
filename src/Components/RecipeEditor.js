@@ -3,56 +3,51 @@ import '../Styles/forms.css';
 import IngredientEditor from './RecipeEditor/IngredientEditor';
 import StepEditor from './RecipeEditor/StepEditor'
 
-function RecipeEditor({updateRecipe, ingredients, steps}) {
-    const [updatedIngredients, setUpdatedIngredients] = useState(ingredients);
-    const [updatedSteps, setUpdatedSteps] = useState(steps);
-
-    const handleSubmit = (event) => {
-        //updateRecipe({}, {});
-        event.preventDefault();
-    }
+function RecipeEditor({initialIngredients, initialSteps}) {
+    const [ingredients, setIngredients] = useState(initialIngredients);
+    const [steps, setSteps] = useState(initialSteps);
 
     const handleIngredientChange = (event, keyname) => {
-        const newIngObj = {...updatedIngredients};
+        const newIngObj = {...ingredients};
         newIngObj[keyname][event.target.name] = event.target.value;
-        setUpdatedIngredients(newIngObj);
+        setIngredients(newIngObj);
     }
 
     const handleStepChange = (event, keyname) => {
-        const newStepsObj = {...updatedSteps};
+        const newStepsObj = {...steps};
         newStepsObj[keyname] = event.target.value;
-        setUpdatedSteps(newStepsObj);
+        setSteps(newStepsObj);
     }
 
     // const handleIngredientDelete = (keyname) => {
-    //     const newIngObj = {...updatedIngredients};
+    //     const newIngObj = {...ingredients};
     //     delete newIngObj[keyname];
-    //     setUpdatedIngredients(newIngObj);
+    //     setIngredients(newIngObj);
     // }
 
     // const handleStepDelete = (keyname) => {
-    //     const newStepsObj = {...updatedSteps};
+    //     const newStepsObj = {...steps};
     //     delete newStepsObj[keyname];
-    //     setUpdatedSteps(newStepsObj);
+    //     setSteps(newStepsObj);
     // }
 
   return (
     <div>
-        <form className="search-form" onSubmit={handleSubmit}>
-            {Object.keys(updatedIngredients).map((keyName) => 
+        <form className="search-form">
+            {Object.keys(ingredients).map((keyName) => 
                 <IngredientEditor 
                     key={`ingredient${keyName}`}
                     idx={keyName} 
-                    name={updatedIngredients[keyName].name} 
-                    unit={updatedIngredients[keyName].unit}
-                    quantity={updatedIngredients[keyName].quantity}
+                    name={ingredients[keyName].name} 
+                    unit={ingredients[keyName].unit}
+                    quantity={ingredients[keyName].quantity}
                     handleIngredientChange={handleIngredientChange}
                 />
             )}
-            {Object.keys(updatedSteps).map((keyName) => 
+            {Object.keys(steps).map((keyName) => 
                 <StepEditor 
                     key={`step${keyName}`} 
-                    step={updatedSteps[keyName]} 
+                    step={steps[keyName]} 
                     idx={keyName} 
                     handleStepChange={handleStepChange} 
                 />

@@ -14,10 +14,13 @@ function CreateRecipes() {
     const updateRecipe = (ingredientList, stepList) => {
         setIngredients({...ingredientList});
         setSteps({...stepList});
-        console.log('stepList', stepList);
+        console.log('steps:', steps);
+        console.log('ingredients: ', ingredients);
     }
 
     const handleAccept = () => {
+        console.log('accepted steps: ', steps);
+        console.log('accepted ingredients: ', ingredients);
         setActive('EDIT');
     }
 
@@ -35,7 +38,7 @@ function CreateRecipes() {
             </div> 
         ) : 
             <div>
-                <RecipeEditor updateRecipe={updateRecipe} ingredients={ingredients} steps={steps}/>
+                <RecipeEditor updateRecipe={updateRecipe} initialIngredients={ingredients} initialSteps={steps}/>
             </div>
         }
     </div>

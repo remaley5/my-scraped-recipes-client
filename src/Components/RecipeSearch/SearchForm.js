@@ -4,9 +4,6 @@ import '../../Styles/forms.css';
 function SearchForm({updateRecipe}) {
 
     const [url, setUrl] = useState('');
-    const [ingredients, setIngredients] = useState({});
-    const [steps, setSteps] = useState({});
-
     const [error, setErrorMessage] = useState('');
 
     const handleChange = (event) => {
@@ -33,24 +30,17 @@ function SearchForm({updateRecipe}) {
             stepsArr.forEach(function(step, idx) {
                 stepsObj[idx+1] = step;
             });
-            setSteps(stepsObj);
 
             const ingredientsArray = [...responseData.data.ingredients];
             const ingredientsObj = {};
             ingredientsArray.forEach(function(ingredient, idx) {
                 ingredientsObj[idx+1] = ingredient;
             });
-            setIngredients(ingredientsObj);
-
-            //setSteps([...responseData.data.steps]);
-        }).then(() => {
-            updateRecipe(ingredients, steps);
-            setErrorMessage('');
+            updateRecipe(ingredientsObj, stepsObj);
         });
       };
 
     const handleSubmit = (event) => {
-        // updateRecipe({}, {});
         event.preventDefault();
         scrapeRecipe();
     }
