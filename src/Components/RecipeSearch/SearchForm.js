@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import '../../Styles/forms.css';
 
-function SearchForm({updateSteps, updateIngredients, updateRecipe}) {
+function SearchForm({updateSteps, updateIngredients}) {
 
     const [url, setUrl] = useState('');
     const [error, setErrorMessage] = useState('');
@@ -11,6 +11,7 @@ function SearchForm({updateSteps, updateIngredients, updateRecipe}) {
     }
 
     const scrapeRecipe = () => {
+        
         const searchUrl = url;
         fetch('http://localhost:9000/scrape/useurl', {
             method: 'post', 
