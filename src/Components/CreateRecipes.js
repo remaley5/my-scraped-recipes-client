@@ -1,34 +1,35 @@
 import Ingredients from './RecipeSearch/Ingredients';
-import Steps from './Steps';
+import Steps from './RecipeSearch/Steps';
 import SearchForm from './RecipeSearch/SearchForm';
 import RecipeEditor from './RecipeEditor';
 import React, {useState, useEffect} from 'react';
-import '../Styles/search.css'
+import '../Styles/search.css';
+import '../Styles/forms.css';
 
 function CreateRecipes() {
     const [ingredients, setIngredients] = useState({});
     const [steps, setSteps] = useState({});
 
-    const [active, setActive] = useState('SEARCH');
+    const [progress, setprogress] = useState('SEARCH');
 
     // Save state in localstorage
     useEffect(() => {
         var storedSteps = JSON.parse(window.localStorage.getItem('steps'));
         var storedIngredients = JSON.parse(window.localStorage.getItem('ingredients'));
-        var storedActive = window.localStorage.getItem('active');
+        var storedProgress = window.localStorage.getItem('progress');
         if(storedSteps !== null) {
             setSteps(storedSteps);
         } 
         if(storedIngredients !== null) {
             setIngredients(storedIngredients);
         }
-        if(storedActive !== null) {
-            setActive(storedActive);
+        if(storedProgress !== null) {
+            setprogress(storedProgress);
         }
     }, []);
 
 
-
+    // Update Recipe State
     const updateSteps = (updatedSteps) => {
         setSteps({...updatedSteps});
         window.localStorage.setItem('steps', JSON.stringify(updatedSteps));
@@ -41,37 +42,49 @@ function CreateRecipes() {
         window.localStorage.setItem('ingredients', JSON.stringify(updatedIngredients));
     }
 
-    const handleAccept = () => {
-        setActive('EDIT');
-        window.localStorage.setItem('active', 'EDIT');
+    // Track Form Progress
+    const handleFormProgress = (progressState) => {
+        setprogress(progressState);
+        window.localStorage.setItem('progress', progressState);
     }
 
   return (
     <div>
         <h1> Create your Recipe </h1>
-        {active === 'SEARCH' ? (
+        {progress === 'SEARCH' ? (
             <div>
-            <div className="search-top">
-                <h2>Copy from a site</h2>
+                <ul className="progressbar">
+                    <li className="first current">Search Recipe</li>
+                    <li className="second"> Edit Ingredients</li>
+                    <li className="third">Edit Instructions</li>
+                </ul>
+                <div className="search-top">
+                    <h2 id="search-recipe-label">Search by URL</h2>
 
-                <SearchForm 
-                    updateSteps={updateSteps} 
-                    updateIngredients={updateIngredients}
-                />
-            </div>
+                    <SearchForm 
+                        updateSteps={updateSteps} 
+                        updateIngredients={updateIngredients}
+                    />
+                </div>
+                <div className="results-wrap">
+                    <h2>Recipe</h2>
+                    <Steps steps={steps}/>
 
-            <Steps steps={steps}/>
+                    <Ingredients ingredients={ingredients}/>
 
-            <Ingredients ingredients={ingredients}/>
-
-            <button onClick={handleAccept}>Accept and Edit</button>
+                    <button 
+                        className="accept submit-button"
+                        onClick={() => handleFormProgress('EDIT_INGREDIENTS')}>Accept and Edit</button>
+                </div>
             </div> 
         ) : 
             <div>
                 <RecipeEditor 
+                    handleFormProgress={handleFormProgress}
                     updateSteps={updateSteps} 
                     ingredients={ingredients} 
                     steps={steps}
+                    progress={progress}
                 />
             </div>
         }

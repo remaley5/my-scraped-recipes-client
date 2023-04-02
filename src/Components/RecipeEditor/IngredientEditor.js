@@ -4,7 +4,8 @@ import '../../Styles/forms.css';
 function IngredientEditor({name, unit, quantity, idx, handleIngredientChange, handleIngredientDelete}) {
     const [disabled, setDisabled] = useState(false);
 
-    const handleDisabled = () => {
+    const handleDisabled = (event) => {
+        event.preventDefault();
         console.log('disabled ', disabled);
         if(!!disabled) {
             setDisabled(false);

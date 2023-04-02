@@ -51,7 +51,6 @@ function SearchForm({updateSteps, updateIngredients}) {
   return (
     <div>
         <form className="search-form" onSubmit={handleSubmit}>
-            <label htmlFor="url-input">Recipe Link</label>
             <div className="control-wrap">
                 <input 
                     id="url-input" 
@@ -59,6 +58,7 @@ function SearchForm({updateSteps, updateIngredients}) {
                     type="text" 
                     autoComplete='true'
                     aria-describedby='error-message'
+                    aria-labelledby='search-recipe-label'
                     value={url}
                     onChange={handleChange}></input>
                 <button>Submit Search</button>

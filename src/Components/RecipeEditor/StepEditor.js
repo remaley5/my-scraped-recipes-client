@@ -4,7 +4,8 @@ import '../../Styles/forms.css';
 function StepEditor({step, idx, handleStepChange}) {
     const [disabled, setDisabled] = useState(false);
 
-    const handleDisable = () => {
+    const handleDisable = (event) => {
+        event.preventDefault();
         if(disabled) {
             setDisabled(false);
         } else {

@@ -6,39 +6,48 @@ $blue: rgb(152, 197, 253);
 $light-blue: rgb(216 241 253);
 $light-muted-pink: rgb(252 239 232);
 $light-tan: rgb(245 236 227);
-$red: rgb(241 11 43);
+$red: rgb(178 19 41);
 $darker-blue: rgb(58, 58, 108);
 
 
-.results-wrap h2 {
-    width: 80%;
-    margin: auto;
-    font-size: 40px;
-    margin-top: 40px;
-    padding-bottom: 30px;
-    border-bottom: 10px solid $light-pink;
+.results-wrap {
+    background-color: rgb(233 248 255);
+    padding-bottom: 500px;
+    h2 {
+        width: 80%;
+        margin: auto;
+        font-size: 40px;
+        padding-top: 50px;
+    }
+    button.accept {
+        float: right;
+        margin: 50px 10% 50px 50px;
+        background-color: white;
+        border: 3px solid $darker-pink;
+        color: $red;
+        border-radius: 15px;
+        font-weight:bold;
+    }
+    button.accept:hover {
+        background-color: $darker-pink;
+        color: white;
+    }
 }
 .results {
-    background-color: white;
-    //width: 80%;
-    margin: auto;
+    margin-left: 15%;
+    margin: 30px 10% 0% 10%;
     box-sizing: border-box;
-    padding-left: 10%;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    padding-right: 10%;
+    border: 4px solid $dark-pink;
+    padding-top: 30px;
+    background-color: white;
+    padding: 30px;
     h3 {
-        color: $red;
+        color: $darker-blue;
         font-size: 30px;
-        width: 90%;
-        border-bottom: 4px solid $dark-pink;
         padding-bottom: 20px;
-    }
-    ul {
-        border-top: 4px solid $dark-pink;
-        border-left: 4px solid $dark-pink;
-        padding-top: 30px;
-        width: 80%;
+        padding-left: 35px;
+        border-bottom:3px solid rgb(245, 144, 158);
+        width: 50%;
     }
     li {
         letter-spacing: .5px;
@@ -56,10 +65,10 @@ $darker-blue: rgb(58, 58, 108);
 }
 
 .search-top {
-    padding: 30px 30px 10px 30px;
+    padding: 20px 10% 20px 10%;
     padding-left: 10%;
     padding-right: 10%;
-    background-color: $light-blue;
+    background-color: rgb(216, 241, 253);
     h1 {
         border-bottom: 5px solid $blue;
         padding-bottom: 30px;

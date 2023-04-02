@@ -2,7 +2,6 @@
 function Ingredients({ingredients}) {
   
   return (
-      <div className="results-wrap">
         <div className="results">
           <h3>Ingredients</h3>
           <ul>
@@ -14,7 +13,6 @@ function Ingredients({ingredients}) {
               </li>)}
           </ul>
         </div>
-      </div>
     );
   }
 
