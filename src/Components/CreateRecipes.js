@@ -11,34 +11,45 @@ function CreateRecipes() {
 
     const [active, setActive] = useState('SEARCH');
 
-    const updateRecipe = (ingredientList, stepList) => {
-        setIngredients({...ingredientList});
-        setSteps({...stepList});
-        console.log('steps:', steps);
-        console.log('ingredients: ', ingredients);
+    const updateSteps = (updatedSteps) => {
+        setSteps({...updatedSteps});
+    }
+    const updateIngredients = (updatedIngredients) => {
+        setIngredients({...updatedIngredients});
     }
 
     const handleAccept = () => {
-        console.log('accepted steps: ', steps);
-        console.log('accepted ingredients: ', ingredients);
         setActive('EDIT');
     }
 
   return (
     <div>
+        <h1> Create your Recipe </h1>
         {active === 'SEARCH' ? (
             <div>
             <div className="search-top">
-                <h1>Find your Recipe</h1>
-                <SearchForm updateRecipe={updateRecipe}/>
+                <h2>Copy from a site</h2>
+
+                <SearchForm 
+                    updateSteps={updateSteps} 
+                    updateIngredients={updateIngredients}
+                />
             </div>
+
             <Steps steps={steps}/>
+
             <Ingredients ingredients={ingredients}/>
+
             <button onClick={handleAccept}>Accept and Edit</button>
             </div> 
         ) : 
             <div>
-                <RecipeEditor updateRecipe={updateRecipe} initialIngredients={ingredients} initialSteps={steps}/>
+                <RecipeEditor 
+                    updateSteps={updateSteps} 
+                    updateIngredients={updateIngredients} 
+                    ingredients={ingredients} 
+                    steps={steps}
+                />
             </div>
         }
     </div>

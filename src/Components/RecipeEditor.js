@@ -1,22 +1,19 @@
-import React, {useState} from 'react';
 import '../Styles/forms.css';
 import IngredientEditor from './RecipeEditor/IngredientEditor';
 import StepEditor from './RecipeEditor/StepEditor'
 
-function RecipeEditor({initialIngredients, initialSteps}) {
-    const [ingredients, setIngredients] = useState(initialIngredients);
-    const [steps, setSteps] = useState(initialSteps);
+function RecipeEditor({updateSteps, updateIngredients, ingredients, steps}) {
 
     const handleIngredientChange = (event, keyname) => {
         const newIngObj = {...ingredients};
         newIngObj[keyname][event.target.name] = event.target.value;
-        setIngredients(newIngObj);
+        updateIngredients(newIngObj);
     }
 
     const handleStepChange = (event, keyname) => {
         const newStepsObj = {...steps};
         newStepsObj[keyname] = event.target.value;
-        setSteps(newStepsObj);
+        updateSteps(newStepsObj);
     }
 
     // const handleIngredientDelete = (keyname) => {

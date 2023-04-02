@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import '../../Styles/forms.css';
 
-function SearchForm({updateRecipe}) {
+function SearchForm({updateSteps, updateIngredients, updateRecipe}) {
 
     const [url, setUrl] = useState('');
     const [error, setErrorMessage] = useState('');
@@ -36,7 +36,9 @@ function SearchForm({updateRecipe}) {
             ingredientsArray.forEach(function(ingredient, idx) {
                 ingredientsObj[idx+1] = ingredient;
             });
-            updateRecipe(ingredientsObj, stepsObj);
+            //updateRecipe(ingredientsObj, stepsObj);
+            updateSteps(stepsObj);
+            updateIngredients(ingredientsObj);
         });
       };
 
