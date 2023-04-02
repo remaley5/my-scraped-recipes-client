@@ -1,5 +1,5 @@
 $font-stack: Helvetica, san-serif;
-$light-pink:  rgb(251, 222, 223);
+$light-pink:  rgb(255, 241, 241);
 $dark-pink: rgb(244, 189, 196);
 $darker-pink: rgb(245, 144, 158);
 $blue: rgb(152, 197, 253);
@@ -9,6 +9,10 @@ $light-tan: rgb(245 236 227);
 $red: rgb(241 11 43);
 $darker-blue: rgb(58, 58, 108);
 
+h1.create-heading {
+    margin-left: 10%;
+    margin-bottom: 80px;
+}
 button {
     font: inherit;
     font-size: inherit;
@@ -47,10 +51,15 @@ button {
         border-bottom:none;
     }
     li.current {
-        background-color: $light-blue;
         color: $darker-blue;
         border: 2px solid $darker-blue;
         border-bottom: none;
+    }
+    li.first.current {
+        background-color: $light-blue;
+    }
+    li.second.current {
+        background-color: $light-pink;
     }
     li.third, li.second {
         padding: 20px 50px 20px 80px;
@@ -120,4 +129,48 @@ form.search-form {
 .submit-button {
     padding: 20px;
     font-size: 23px;
+}
+
+//////////// EDIT RECIPE FORM ////////////
+
+form.recipe-editor {
+    background-color: $light-pink;
+    padding: 50px 10% 50px 10%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding-top: 50px;
+    textarea {
+        height: 200px;
+    }
+    legend, .step label {
+        font-size: 25px;
+    }
+    .item {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        font-size: 16px;
+        input, textarea {
+            padding: 10px;
+            font-size: 20px;
+        }
+    }
+    fieldset {
+        background-color: white;
+        padding: 20px;
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        width: 100%;
+        .item.qty {
+            flex-grow: .5;
+        }
+        .item.unit {
+            flex-grow: .5;
+        }
+        .item.name {
+            flex-grow: 20;
+        }
+    }
 }

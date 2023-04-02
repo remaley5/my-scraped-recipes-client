@@ -22,18 +22,27 @@ function RecipeEditor({handleFormProgress, updateSteps, updateIngredients, ingre
 
             <ul className="progressbar">
                 <li className="first active">
-                    <button disabled={false} onClick={() => handleFormProgress('SEARCH')}>
+                    <button 
+                        disabled={false} 
+                        onClick={(event) => handleFormProgress(event, 'SEARCH')}>
                         Search Recipes
                     </button>
                 </li>
-                <li className="current second"><button disabled={progress === 'EDIT_STEPS' ? false : true}>Edit Ingredients</button></li>
-                <li className="third">Edit Instructions</li>
+                <li className={progress === 'EDIT_INGREDIENTS' ? "second current" : "second active"}>
+                    <button 
+                    disabled={progress === 'EDIT_INGREDIENTS' ? true : false}
+                    onClick={(event) => handleFormProgress(event, 'EDIT_INGREDIENTS')}
+                    >
+                        Edit Ingredients
+                    </button>
+                </li>
+                <li className={progress === 'EDIT_STEPS' ? "third current" : "third"}>Edit Instructions</li>
             </ul>
 
-            <form className="search-form">
-                <div>
-                {progress = 'EDIT_INGREDIENTS' ? 
-                        Object.keys(ingredients).map((keyName) => 
+            <form className="recipe-editor">
+                {progress === 'EDIT_INGREDIENTS' ? 
+                    <div>
+                        {Object.keys(ingredients).map((keyName) => 
                             <IngredientEditor 
                                 key={`ingredient${keyName}`}
                                 idx={keyName} 
@@ -42,7 +51,11 @@ function RecipeEditor({handleFormProgress, updateSteps, updateIngredients, ingre
                                 quantity={ingredients[keyName].quantity}
                                 handleIngredientChange={handleIngredientChange}
                             />
-                        )
+                        )}
+                        <button className="accept submit-button" onClick={(event) => {
+                            handleFormProgress(event, 'EDIT_STEPS')
+                        }}>Save and Continue</button>
+                    </div>
                  : 
                     Object.keys(steps).map((keyName) => 
                         <StepEditor 
@@ -52,7 +65,6 @@ function RecipeEditor({handleFormProgress, updateSteps, updateIngredients, ingre
                             handleStepChange={handleStepChange}
                         />
                     )}
-                    </div>
             </form>
         </div>
     );

@@ -14,14 +14,14 @@ function StepEditor({step, idx, handleStepChange}) {
     }
 
   return (
-    <div>
+    <div className="item step">
         <label>Step {idx}</label>
-        <input 
+        <textarea 
             disabled={disabled}
             value={step}
             name='step'
             key={`step${idx}`}
-            type='textarea'
+            type='text'
             autoComplete='true'
             onChange={(event) => handleStepChange(event, idx)}
         />

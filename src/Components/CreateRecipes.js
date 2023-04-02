@@ -43,14 +43,16 @@ function CreateRecipes() {
     }
 
     // Track Form Progress
-    const handleFormProgress = (progressState) => {
+    const handleFormProgress = (event, progressState) => {
+        event.preventDefault();
+        console.log('setting progress state');
         setprogress(progressState);
         window.localStorage.setItem('progress', progressState);
     }
 
   return (
     <div>
-        <h1> Create your Recipe </h1>
+        <h1 className="create-heading"> Create your Recipe </h1>
         {progress === 'SEARCH' ? (
             <div>
                 <ul className="progressbar">
@@ -74,7 +76,7 @@ function CreateRecipes() {
 
                     <button 
                         className="accept submit-button"
-                        onClick={() => handleFormProgress('EDIT_INGREDIENTS')}>Accept and Edit</button>
+                        onClick={(event) => handleFormProgress(event, 'EDIT_INGREDIENTS')}>Accept and Edit</button>
                 </div>
             </div> 
         ) : 
@@ -82,6 +84,7 @@ function CreateRecipes() {
                 <RecipeEditor 
                     handleFormProgress={handleFormProgress}
                     updateSteps={updateSteps} 
+                    updateIngredients={updateIngredients}
                     ingredients={ingredients} 
                     steps={steps}
                     progress={progress}

@@ -10,6 +10,20 @@ $red: rgb(178 19 41);
 $darker-blue: rgb(58, 58, 108);
 
 
+button.accept {
+    float: right;
+    margin: 50px 10% 50px 50px;
+    background-color: white;
+    border: 3px solid $darker-pink;
+    color: $red;
+    border-radius: 15px;
+    font-weight:bold;
+}
+button.accept:hover {
+    background-color: $darker-pink;
+    color: white;
+}
+
 .results-wrap {
     background-color: rgb(233 248 255);
     padding-bottom: 500px;
@@ -18,19 +32,6 @@ $darker-blue: rgb(58, 58, 108);
         margin: auto;
         font-size: 40px;
         padding-top: 50px;
-    }
-    button.accept {
-        float: right;
-        margin: 50px 10% 50px 50px;
-        background-color: white;
-        border: 3px solid $darker-pink;
-        color: $red;
-        border-radius: 15px;
-        font-weight:bold;
-    }
-    button.accept:hover {
-        background-color: $darker-pink;
-        color: white;
     }
 }
 .results {

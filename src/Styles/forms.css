@@ -1,3 +1,8 @@
+h1.create-heading {
+  margin-left: 10%;
+  margin-bottom: 80px;
+}
+
 button {
   font: inherit;
   font-size: inherit;
@@ -37,10 +42,15 @@ button {
   border-bottom: none;
 }
 .progressbar li.current {
-  background-color: rgb(216, 241, 253);
   color: rgb(58, 58, 108);
   border: 2px solid rgb(58, 58, 108);
   border-bottom: none;
+}
+.progressbar li.first.current {
+  background-color: rgb(216, 241, 253);
+}
+.progressbar li.second.current {
+  background-color: rgb(255, 241, 241);
 }
 .progressbar li.third, .progressbar li.second {
   padding: 20px 50px 20px 80px;
@@ -109,6 +119,48 @@ form.search-form .error {
 .submit-button {
   padding: 20px;
   font-size: 23px;
+}
+
+form.recipe-editor {
+  background-color: rgb(255, 241, 241);
+  padding: 50px 10% 50px 10%;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding-top: 50px;
+}
+form.recipe-editor textarea {
+  height: 200px;
+}
+form.recipe-editor legend, form.recipe-editor .step label {
+  font-size: 25px;
+}
+form.recipe-editor .item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 16px;
+}
+form.recipe-editor .item input, form.recipe-editor .item textarea {
+  padding: 10px;
+  font-size: 20px;
+}
+form.recipe-editor fieldset {
+  background-color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 100%;
+}
+form.recipe-editor fieldset .item.qty {
+  flex-grow: 0.5;
+}
+form.recipe-editor fieldset .item.unit {
+  flex-grow: 0.5;
+}
+form.recipe-editor fieldset .item.name {
+  flex-grow: 20;
 }
 
 /*# sourceMappingURL=forms.css.map */

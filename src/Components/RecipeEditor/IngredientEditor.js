@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import '../../Styles/forms.css';
 
-function IngredientEditor({name, unit, quantity, idx, handleIngredientChange, handleIngredientDelete}) {
+function IngredientEditor({name, unit, quantity, idx, handleIngredientChange, handleFormProgress}) {
     const [disabled, setDisabled] = useState(false);
 
     const handleDisabled = (event) => {
@@ -16,12 +16,30 @@ function IngredientEditor({name, unit, quantity, idx, handleIngredientChange, ha
 
   return (
     <div>
-        <fieldset className="form-group" disabled={disabled}>
-                <legend id={`ingredient${idx}`}>
-                    Ingredient {idx}
-                </legend>
-                <label className="hidden-label">
-                    unit for ingredient {idx}
+        <fieldset className="form-group">
+            <legend 
+            //id={`ingredient${idx}`}
+            >
+                Ingredient {idx}
+            </legend>
+            <div className="item qty">
+                <label htmlFor={`quanitity${idx}`}>
+                    quantity
+                </label>
+                <input
+                    disabled={disabled}
+                    type="text"
+                    autoComplete='true'
+                    onChange={(event) => handleIngredientChange(event, idx)}
+                    value={quantity}
+                    name={'quantity'}
+                    keyname={idx}
+                    //aria-describedby={`ingredient${idx}`}
+                    />
+            </div>
+            <div className="item unit">
+                <label htmlFor={`unit${idx}`}>
+                    unit
                 </label>
                 <input
                     disabled={disabled}
@@ -31,41 +49,32 @@ function IngredientEditor({name, unit, quantity, idx, handleIngredientChange, ha
                     value={unit}
                     name={'unit'}
                     keyname={idx}
-                    aria-describedby={`ingredient${idx}`}
+                    //aria-describedby={`ingredient${idx}`}
                 />
-            <label className="hidden-label">
-                quantity for ingredient {idx}
-            </label>
-            <input
-                disabled={disabled}
-                type="text"
-                autoComplete='true'
-                onChange={(event) => handleIngredientChange(event, idx)}
-                value={quantity}
-                name={'quantity'}
-                keyname={idx}
-                aria-describedby={`ingredient${idx}`}
-                />
-            <label className="hidden-label">
-                type for ingredient {idx}
-            </label>
-            <input
-                disabled={disabled}
-                type="text"
-                autoComplete='true'
-                onChange={(event) => handleIngredientChange(event, idx)}
-                value={name}
-                name={'name'}
-                keyname={idx}
-                aria-describedby={`ingredient${idx}`}
-                /> 
+            </div>
+            <div className="item name">
+                <label htmlFor={`name${idx}`}>
+                    type
+                </label>
+                <input
+                    disabled={disabled}
+                    type="text"
+                    autoComplete='true'
+                    onChange={(event) => handleIngredientChange(event, idx)}
+                    value={name}
+                    name={'name'}
+                    keyname={idx}
+                    //aria-describedby={`ingredient${idx}`}
+                    /> 
+            </div>
+            <button
+                //onClick={() => handleIngredientDelete(idx)}
+                onClick={(handleDisabled)}
+                >
+                delete
+            </button>
         </fieldset>
-        <button
-            //onClick={() => handleIngredientDelete(idx)}
-            onClick={(handleDisabled)}
-            >
-            delete
-        </button>
+
     </div>
   );
 }
