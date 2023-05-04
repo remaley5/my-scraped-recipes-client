@@ -9,14 +9,13 @@ import '../Styles/forms.css';
 function CreateRecipes() {
     const [ingredients, setIngredients] = useState({});
     const [steps, setSteps] = useState({});
-
     const [progress, setprogress] = useState('SEARCH');
 
-    // Save state in localstorage
+    // Save state in sessionStorage
     useEffect(() => {
-        var storedSteps = JSON.parse(window.localStorage.getItem('steps'));
-        var storedIngredients = JSON.parse(window.localStorage.getItem('ingredients'));
-        var storedProgress = window.localStorage.getItem('progress');
+        var storedSteps = JSON.parse(window.sessionStorage.getItem('steps'));
+        var storedIngredients = JSON.parse(window.sessionStorage.getItem('ingredients'));
+        var storedProgress = window.sessionStorage.getItem('progress');
         if(storedSteps !== null) {
             setSteps(storedSteps);
         } 
@@ -32,14 +31,14 @@ function CreateRecipes() {
     // Update Recipe State
     const updateSteps = (updatedSteps) => {
         setSteps({...updatedSteps});
-        window.localStorage.setItem('steps', JSON.stringify(updatedSteps));
+        window.sessionStorage.setItem('steps', JSON.stringify(updatedSteps));
     }
 
     const updateIngredients = (updatedIngredients) => {
-        console.log('ingredients updating');
+        //console.log('ingredients updating');
         setIngredients({...updatedIngredients});
-        console.log('updatedIngredients', updatedIngredients);
-        window.localStorage.setItem('ingredients', JSON.stringify(updatedIngredients));
+        //console.log('updatedIngredients', updatedIngredients);
+        window.sessionStorage.setItem('ingredients', JSON.stringify(updatedIngredients));
     }
 
     // Track Form Progress
@@ -47,7 +46,7 @@ function CreateRecipes() {
         event.preventDefault();
         console.log('setting progress state');
         setprogress(progressState);
-        window.localStorage.setItem('progress', progressState);
+        window.sessionStorage.setItem('progress', progressState);
     }
 
   return (

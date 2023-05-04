@@ -11,7 +11,6 @@ function SearchForm({updateSteps, updateIngredients}) {
     }
 
     const scrapeRecipe = () => {
-        
         const searchUrl = url;
         fetch('http://localhost:9000/scrape/useurl', {
             method: 'post', 
