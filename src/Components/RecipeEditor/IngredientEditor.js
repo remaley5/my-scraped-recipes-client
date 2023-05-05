@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import '../../Styles/forms.css';
 
-function IngredientEditor({name, unit, quantity, idx, handleIngredientChange, handleFormProgress}) {
+function IngredientEditor({name, unit, quantity, idx, handleIngredientChange}) {
     const [disabled, setDisabled] = useState(false);
 
     const handleDisabled = (event) => {

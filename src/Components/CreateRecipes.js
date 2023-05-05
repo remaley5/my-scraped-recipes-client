@@ -2,32 +2,35 @@ import Ingredients from './RecipeSearch/Ingredients';
 import Steps from './RecipeSearch/Steps';
 import SearchForm from './RecipeSearch/SearchForm';
 import RecipeEditor from './RecipeEditor';
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import { useSearchRecipe } from './hooks/searchRecipeHook';
 import '../Styles/search.css';
 import '../Styles/forms.css';
 
 function CreateRecipes() {
     // const [ingredients, setIngredients] = useState({});
-    const [progress, setprogress] = useState('SEARCH');
+    //const [progress, setprogress] = useState('SEARCH');
     
-    const { loading, error, steps, ingredients, handleSearchSubmit } = useSearchRecipe();
+    const { loading, error, steps, ingredients, progress, handleSearchSubmit, updateIngredients, updateSteps, handleFormProgress,  checkLocalStorage} = useSearchRecipe();
 
-    // Save state in sessionStorage
+    
+
+    // // Save state in sessionStorage
     useEffect(() => {
-        var storedSteps = JSON.parse(window.sessionStorage.getItem('steps'));
-        var storedIngredients = JSON.parse(window.sessionStorage.getItem('ingredients'));
-        var storedProgress = window.sessionStorage.getItem('progress');
-        if(storedSteps !== null) {
-            setSteps(storedSteps);
-        } 
-        if(storedIngredients !== null) {
-            setIngredients(storedIngredients);
-        }
-        if(storedProgress !== null) {
-            setprogress(storedProgress);
-        }
-    }, []);
+        checkLocalStorage();
+    //     var storedSteps = JSON.parse(window.sessionStorage.getItem('steps'));
+    //     var storedIngredients = JSON.parse(window.sessionStorage.getItem('ingredients'));
+    //     var storedProgress = window.sessionStorage.getItem('progress');
+    //     if(storedSteps !== null) {
+    //         setSteps(storedSteps);
+    //     } 
+    //     if(storedIngredients !== null) {
+    //         setIngredients(storedIngredients);
+    //     }
+    //     if(storedProgress !== null) {
+    //         setprogress(storedProgress);
+    //     }
+    });
 
 
     // Update Recipe State
@@ -43,13 +46,13 @@ function CreateRecipes() {
     //     window.sessionStorage.setItem('ingredients', JSON.stringify(updatedIngredients));
     // }
 
-    // Track Form Progress
-    const handleFormProgress = (event, progressState) => {
-        event.preventDefault();
-        console.log('setting progress state');
-        setprogress(progressState);
-        window.sessionStorage.setItem('progress', progressState);
-    }
+    // // Track Form Progress
+    // const handleFormProgress = (event, progressState) => {
+    //     event.preventDefault();
+    //     console.log('setting progress state');
+    //     setprogress(progressState);
+    //     window.sessionStorage.setItem('progress', progressState);
+    // }
 
   return (
     <div>

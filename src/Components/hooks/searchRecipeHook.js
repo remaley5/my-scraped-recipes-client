@@ -7,8 +7,7 @@ export function useSearchRecipe(url) {
     const [error, setError] = useState("");
     const [steps, setSteps] = useState([]);
     const [ingredients, setIngredients] = useState([]);
-
-    setLoading(true);
+    const [progress, setProgress] = useState("SEARCH");
 
     const updateSteps = (updatedSteps) => {
         setSteps({ ...updatedSteps });
@@ -21,6 +20,7 @@ export function useSearchRecipe(url) {
     }
 
     const handleSearchSubmit = async (url) => {
+        setLoading(true);
         const { response } = await searchUrl(url)
         if (response.status >= 400) {
             setLoading(false);
@@ -40,11 +40,35 @@ export function useSearchRecipe(url) {
             ingredientsArray.forEach(function (ingredient, idx) {
                 ingredientsObj[idx + 1] = ingredient;
             });
+
             updateSteps(stepsObj);
             updateIngredients(ingredientsObj);
             setLoading(false);
         }
     }
 
-    return { loading, error, steps, ingredients, handleSearchSubmit };
+    const checkLocalStorage = () => {
+        var storedSteps = JSON.parse(window.sessionStorage.getItem('steps'));
+        var storedIngredients = JSON.parse(window.sessionStorage.getItem('ingredients'));
+        var storedProgress = window.sessionStorage.getItem('progress');
+        if(storedSteps !== null) {
+            setSteps(storedSteps);
+        } 
+        if(storedIngredients !== null) {
+            setIngredients(storedIngredients);
+        }
+        if(storedProgress !== null) {
+            setProgress(storedProgress);
+        }
+    }
+
+        // Track Form Progress
+    const handleFormProgress = (event, progressState) => {
+        event.preventDefault();
+        //console.log('setting progress state');
+        setProgress(progressState);
+        window.sessionStorage.setItem('progress', progressState);
+    }
+
+    return { loading, error, steps, ingredients, progress, handleSearchSubmit, updateIngredients, updateSteps, checkLocalStorage, handleFormProgress};
 };
