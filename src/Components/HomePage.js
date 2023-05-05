@@ -1,5 +1,6 @@
 // import styles from '../Styles/App.css';
 import LoginForm from "./Auth/Login";
+import SignUpForm from "./Auth/SignUp";
 
 function HomePage() {
   
@@ -7,6 +8,7 @@ function HomePage() {
         <div> 
             <h1>Welcome!</h1>
             <LoginForm/>
+            <SignUpForm/>
         </div>
       );
     }

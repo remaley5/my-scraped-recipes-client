@@ -4,6 +4,7 @@ import {
   emailValidator,
   passwordValidator,
   confirmPasswordValidator,
+  confirmUsernameValidator
 } from "../authValidators.js";
 
 const touchErrors = errors => {
@@ -16,7 +17,7 @@ const touchErrors = errors => {
   }, {});
 };
 
-export const useLoginFormValidator = form => {
+export const useSignupFormValidator = form => {
   const [errors, setErrors] = useState({
     email: {
       dirty: false,
@@ -33,6 +34,11 @@ export const useLoginFormValidator = form => {
       error: false,
       message: "",
     },
+    username: {
+        dirty: false, 
+        error: false, 
+        message: "",
+    },
   });
 
   const validateForm = ({ form, field, errors, forceTouchErrors = false }) => {
@@ -46,7 +52,7 @@ export const useLoginFormValidator = form => {
       nextErrors = touchErrors(errors);
     }
 
-    const { email, password, confirmPassword } = form;
+    const { email, password, confirmPassword, username } = form;
 
     if (nextErrors.email.dirty && (field ? field === "email" : true)) {
       const emailMessage = emailValidator(email, form);
@@ -75,6 +81,13 @@ export const useLoginFormValidator = form => {
       if (!!confirmPasswordMessage) isValid = false;
     }
 
+    if (nextErrors.username.dirty && (field ? field === "username" : true)) {
+        const usernameMessage = confirmUsernameValidator(username, form);
+        nextErrors.username.error = !!usernameMessage;
+        nextErrors.username.message = usernameMessage;
+        if (!!usernameMessage) isValid = false;
+      }
+
     setErrors(nextErrors);
 
     return {
@@ -83,25 +96,25 @@ export const useLoginFormValidator = form => {
     };
   };
 
-  const onBlurField = e => {
-    const field = e.target.name;
-    const fieldError = errors[field];
-    if (fieldError.dirty) return;
+//   const onBlurField = e => {
+//     const field = e.target.name;
+//     const fieldError = errors[field];
+//     if (fieldError.dirty) return;
 
-    const updatedErrors = {
-      ...errors,
-      [field]: {
-        ...errors[field],
-        dirty: true,
-      },
-    };
+//     const updatedErrors = {
+//       ...errors,
+//       [field]: {
+//         ...errors[field],
+//         dirty: true,
+//       },
+//     };
 
-    validateForm({ form, field, errors: updatedErrors });
-  };
+//     validateForm({ form, field, errors: updatedErrors });
+//   };
 
   return {
     validateForm,
-    onBlurField,
+    //onBlurField,
     errors,
   };
 };

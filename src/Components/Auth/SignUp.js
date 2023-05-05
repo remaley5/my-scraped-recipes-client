@@ -1,5 +1,6 @@
 import { useState } from "react";
 import '../../Styles/forms.css';
+import {useSignupFormValidator} from "./hooks/useSignupValidators";
 
 function SignUpForm() {
     const [form, setForm] = useState({
@@ -9,23 +10,35 @@ function SignUpForm() {
         confirmPassword: "",
     });
 
+    const {errors, validateForm } = useSignupFormValidator(form);
+    
     const onUpdateField = e => {
+        const field = e.target.name;
         const nextFormState = {
             ...form,
-            [e.target.name]: e.target.value,
+            [field]: e.target.value,
         };
         setForm(nextFormState);
+        if(errors[field].dirty)
+            validateForm({
+                form: nextFormState, 
+                errors, 
+                field
+            })
+
     };
 
     const onSubmitForm = e => {
         e.preventDefault();
+        const {isValid} = validateForm({form, errors, forceTouchErrors: true});
+        if(!isValid) return;
         alert(JSON.stringify(form, null, 2));
     };
 
     return (
         <form className="form" onSubmit={onSubmitForm}>
             <div className="formGroup">
-                <label for="signup-email" className="formLabel">Email<span className="required">required</span></label>
+                <label for="signup-email" className="formLabel">Email<span className="required"> required</span></label>
                 <input
                     aria-required="true"
                     className="formField"
@@ -35,9 +48,12 @@ function SignUpForm() {
                     value={form.email}
                     onChange={onUpdateField}
                 />
+                {errors.email.dirty && errors.email.error ? (
+          <p className="error">{errors.email.message}</p>
+        ) : null}
             </div>
             <div className="formGroup">
-                <label for="signup-password" className="formLabel">Password <span className="required">required</span></label>
+                <label for="signup-password" className="formLabel">Password <span className="required"> required</span></label>
                 <input
                     aria-required="true"
                     className="formField"
@@ -47,9 +63,14 @@ function SignUpForm() {
                     value={form.password}
                     onChange={onUpdateField}
                 />
+                {errors.password.dirty && errors.password.error ? (
+          <p className="error">
+            {errors.password.message}
+          </p>
+        ) : null}
             </div>
             <div className="formGroup">
-                <label for="signup-confirm-password" className="formLabel">Confirm Password<span className="required">required</span></label>
+                <label for="signup-confirm-password" className="formLabel">Confirm Password<span className="required"> required</span></label>
                 <input
                     aria-required="true"
                     className="formField"
@@ -59,8 +80,14 @@ function SignUpForm() {
                     value={form.confirmPassword}
                     onChange={onUpdateField}
                 />
+                {errors.confirmPassword.dirty && errors.confirmPassword.error ? (
+          <p className="error">
+            {errors.confirmPassword.message}
+          </p>
+        ) : null}
             </div>
-            <label for="signup-username" className="formLabel">Pick a username!<span className="required">required</span></label>
+            <div className="formGroup">
+            <label for="signup-username" className="formLabel">Pick a username <span className="required"> required</span></label>
             <input
                 aria-required="true"
                 className="formField"
@@ -70,6 +97,12 @@ function SignUpForm() {
                 value={form.username}
                 onChange={onUpdateField}
             />
+            </div>
+            {errors.username.dirty && errors.username.error ? (
+          <p className="error">
+            {errors.username.message}
+          </p>
+        ) : null}
             <div className="formActions">
                 <button className="formSubmitBtn" type="submit">
                     Login
