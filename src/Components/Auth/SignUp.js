@@ -1,6 +1,7 @@
 import { useState } from "react";
 import '../../Styles/forms.css';
 import {useSignupFormValidator} from "../hooks/useSignupValidators";
+import { useAuthValidator } from "../hooks/useAuthValidate";
 
 function SignUpForm() {
     const [form, setForm] = useState({
@@ -11,6 +12,7 @@ function SignUpForm() {
     });
 
     const {errors, validateForm } = useSignupFormValidator(form);
+    const {authenticated, signupUser} = useAuthValidator();
     
     const onUpdateField = e => {
         const field = e.target.name;
@@ -24,7 +26,7 @@ function SignUpForm() {
                 form: nextFormState, 
                 errors, 
                 field
-            })
+            });
 
     };
 
@@ -32,7 +34,11 @@ function SignUpForm() {
         e.preventDefault();
         const {isValid} = validateForm({form, errors, forceTouchErrors: true});
         if(!isValid) return;
-        alert(JSON.stringify(form, null, 2));
+        console.log('signup valid', form);
+        if(isValid) {
+            signupUser(form);
+        }
+        //alert(JSON.stringify(form, null, 2));
     };
 
     return (
@@ -93,7 +99,7 @@ function SignUpForm() {
                 className="formField"
                 type="text"
                 id="signup-username"
-                name="email"
+                name="username"
                 value={form.username}
                 onChange={onUpdateField}
             />
@@ -105,7 +111,7 @@ function SignUpForm() {
         ) : null}
             <div className="formActions">
                 <button className="formSubmitBtn" type="submit">
-                    Login
+                    Sign Up
                 </button>
             </div>
         </form>

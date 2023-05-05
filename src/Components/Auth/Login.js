@@ -30,6 +30,7 @@ const LoginForm = props => {
     e.preventDefault();
     const { isValid } = validateForm({ form, errors, forceTouchErrors: true });
     if (!isValid) return;
+    console.log('Log in: ', form);
     alert(JSON.stringify(form, null, 2));
   };
 

@@ -6,7 +6,7 @@ export const emailValidator = email => {
   }
   return "";
 };
-  
+
 export const passwordValidator = password => {
   if (!password) {
     return "Password is required";
