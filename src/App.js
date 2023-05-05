@@ -1,18 +1,22 @@
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
-import CreateRecipes from './Components/CreateRecipes'
+import CreateRecipes from './Components/CreateRecipes';
+import Layout from './Components/Layout';
+import HomePage from "./Components/HomePage";
 
-function App() {
-
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* <div>Scraped Recipes</div> */}
-      </header>
-      <main>
-        <CreateRecipes/>
-      </main>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="create" element={<CreateRecipes />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
-export default App;
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);

@@ -9,10 +9,9 @@ import "../Styles/forms.css";
 function CreateRecipes() {
     const [ingredients, setIngredients] = useState({});
     const [steps, setSteps] = useState({});
-
     const [progress, setprogress] = useState("SEARCH");
 
-    // Save state in localstorage
+    // Save state in sessionStorage
     useEffect(() => {
         var storedSteps = JSON.parse(window.localStorage.getItem("steps"));
         var storedIngredients = JSON.parse(
@@ -33,7 +32,7 @@ function CreateRecipes() {
     // Update Recipe State
     const updateSteps = (updatedSteps) => {
         setSteps({ ...updatedSteps });
-        window.localStorage.setItem("steps", JSON.stringify(updatedSteps));
+        window.sessionStorage.setItem("steps", JSON.stringify(updatedSteps));
     };
 
     const updateIngredients = (updatedIngredients) => {
