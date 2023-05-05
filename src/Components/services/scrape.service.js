@@ -1,6 +1,6 @@
 // make database call
 export async function searchUrl(url) {
-    fetch("http://localhost:9000/scrape/useurl", {
+    return await fetch("http://localhost:9000/scrape/useurl", {
         method: "post",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url: searchUrl }),

@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import "../../Styles/forms.css";
 import { MagnifyingGlass } from "react-loader-spinner";
 
-function SearchForm({ updateSteps, updateIngredients }) {
-    const [loading, setLoading] = useState(false);
-
+function SearchForm({ loading, error, handleSearchSubmit }) {
     const [url, setUrl] = useState("");
-    const [error, setErrorMessage] = useState("");
+    //const [loading, setLoading] = useState(false);
+    //const [error, setErrorMessage] = useState("");
 
     const handleChange = (event) => {
         setUrl(event.target.value);
@@ -49,6 +48,7 @@ function SearchForm({ updateSteps, updateIngredients }) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        handleSearchSubmit(url);
         //scrapeRecipe(url);
     };
 

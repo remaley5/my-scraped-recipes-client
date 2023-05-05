@@ -3,13 +3,15 @@ import Steps from './RecipeSearch/Steps';
 import SearchForm from './RecipeSearch/SearchForm';
 import RecipeEditor from './RecipeEditor';
 import React, {useState, useEffect} from 'react';
+import { useSearchRecipe } from './hooks/searchRecipeHook';
 import '../Styles/search.css';
 import '../Styles/forms.css';
 
 function CreateRecipes() {
-    const [ingredients, setIngredients] = useState({});
-    const [steps, setSteps] = useState({});
+    // const [ingredients, setIngredients] = useState({});
     const [progress, setprogress] = useState('SEARCH');
+    
+    const { loading, error, steps, ingredients, handleSearchSubmit } = useSearchRecipe();
 
     // Save state in sessionStorage
     useEffect(() => {
@@ -29,17 +31,17 @@ function CreateRecipes() {
 
 
     // Update Recipe State
-    const updateSteps = (updatedSteps) => {
-        setSteps({...updatedSteps});
-        window.sessionStorage.setItem('steps', JSON.stringify(updatedSteps));
-    }
+    // const updateSteps = (updatedSteps) => {
+    //     setSteps({...updatedSteps});
+    //     window.sessionStorage.setItem('steps', JSON.stringify(updatedSteps));
+    // }
 
-    const updateIngredients = (updatedIngredients) => {
-        //console.log('ingredients updating');
-        setIngredients({...updatedIngredients});
-        //console.log('updatedIngredients', updatedIngredients);
-        window.sessionStorage.setItem('ingredients', JSON.stringify(updatedIngredients));
-    }
+    // const updateIngredients = (updatedIngredients) => {
+    //     //console.log('ingredients updating');
+    //     setIngredients({...updatedIngredients});
+    //     //console.log('updatedIngredients', updatedIngredients);
+    //     window.sessionStorage.setItem('ingredients', JSON.stringify(updatedIngredients));
+    // }
 
     // Track Form Progress
     const handleFormProgress = (event, progressState) => {
@@ -62,9 +64,10 @@ function CreateRecipes() {
                 <div className="search-top">
                     <h2 id="search-recipe-label">Search by URL</h2>
 
-                    <SearchForm 
-                        updateSteps={updateSteps} 
-                        updateIngredients={updateIngredients}
+                    <SearchForm
+                        loading={loading}
+                        error={error}
+                        handleSearchSubmit={handleSearchSubmit}
                     />
                 </div>
                 <div className="results-wrap">
