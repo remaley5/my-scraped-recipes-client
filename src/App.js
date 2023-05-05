@@ -1,8 +1,8 @@
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import './App.css';
-import CreateRecipes from './Components/CreateRecipes';
-import Layout from './Components/Layout';
+import "./App.css";
+import CreateRecipes from "./Components/CreateRecipes";
+import Layout from "./Components/Layout";
 import HomePage from "./Components/HomePage";
 
 export default function App() {
@@ -18,5 +18,5 @@ export default function App() {
   );
 }
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
