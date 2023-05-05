@@ -1,63 +1,88 @@
 import { useState } from "react";
-import '../../Styles/forms.css';
+// import clsx from "clsx";
+import { useLoginFormValidator } from "./hooks/useAuthValidators";
 
-function LoginForm() {
+const LoginForm = props => {
   const [form, setForm] = useState({
     email: "",
     password: "",
     confirmPassword: "",
   });
+  
+  const { errors, validateForm, onBlurField } = useLoginFormValidator(form);
 
   const onUpdateField = e => {
+    const field = e.target.name;
     const nextFormState = {
       ...form,
-      [e.target.name]: e.target.value,
+      [field]: e.target.value,
     };
     setForm(nextFormState);
+    if (errors[field].dirty)
+      validateForm({
+        form: nextFormState,
+        errors,
+        field,
+      });
   };
 
   const onSubmitForm = e => {
     e.preventDefault();
+    const { isValid } = validateForm({ form, errors, forceTouchErrors: true });
+    if (!isValid) return;
     alert(JSON.stringify(form, null, 2));
   };
 
   return (
-    <form className="form" onSubmit={onSubmitForm}>
-      <div className="formGroup">
-        <label className="formLabel">Email</label>
+    <form onSubmit={onSubmitForm}>
+      <div >
+        <label>Email</label>
         <input
-          className="formField"
           type="text"
           aria-label="Email field"
           name="email"
           value={form.email}
           onChange={onUpdateField}
+          onBlur={onBlurField}
         />
+        {errors.email.dirty && errors.email.error ? (
+          <p >{errors.email.message}</p>
+        ) : null}
       </div>
-      <div className="formGroup">
-        <label className="formLabel">Password</label>
+      <div >
+        <label>Password</label>
         <input
-          className="formField"
           type="password"
           aria-label="Password field"
           name="password"
           value={form.password}
           onChange={onUpdateField}
+          onBlur={onBlurField}
         />
+        {errors.password.dirty && errors.password.error ? (
+          <p >
+            {errors.password.message}
+          </p>
+        ) : null}
       </div>
-      <div className="formGroup">
-        <label className="formLabel">Confirm Password</label>
+      <div >
+        <label>Confirm Password</label>
         <input
-          className="formField"
           type="password"
           aria-label="Confirm password field"
           name="confirmPassword"
           value={form.confirmPassword}
           onChange={onUpdateField}
+          onBlur={onBlurField}
         />
+        {errors.confirmPassword.dirty && errors.confirmPassword.error ? (
+          <p >
+            {errors.confirmPassword.message}
+          </p>
+        ) : null}
       </div>
-      <div className="formActions">
-        <button className="formSubmitBtn" type="submit">
+      <div>
+        <button type="submit">
           Login
         </button>
       </div>
