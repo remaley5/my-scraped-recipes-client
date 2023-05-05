@@ -30,7 +30,7 @@ function CreateRecipes() {
     //     if(storedProgress !== null) {
     //         setprogress(storedProgress);
     //     }
-    });
+    }, []);
 
 
     // Update Recipe State

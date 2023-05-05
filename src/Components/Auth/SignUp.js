@@ -1,6 +1,6 @@
 import { useState } from "react";
 import '../../Styles/forms.css';
-import {useSignupFormValidator} from "./hooks/useSignupValidators";
+import {useSignupFormValidator} from "../hooks/useSignupValidators";
 
 function SignUpForm() {
     const [form, setForm] = useState({

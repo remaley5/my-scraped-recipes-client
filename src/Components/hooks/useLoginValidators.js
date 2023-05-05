@@ -3,7 +3,7 @@ import { useState } from "react";
 import {
   emailValidator,
   passwordValidator,
-} from "../Auth/authValidators.js";
+} from "../Auth/authValidators";
 
 const touchErrors = errors => {
   return Object.entries(errors).reduce((acc, [field, fieldError]) => {

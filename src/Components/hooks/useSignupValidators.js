@@ -5,7 +5,7 @@ import {
   passwordValidator,
   confirmPasswordValidator,
   confirmUsernameValidator
-} from "../authValidators.js";
+} from "../Auth/authValidators";
 
 const touchErrors = errors => {
   return Object.entries(errors).reduce((acc, [field, fieldError]) => {

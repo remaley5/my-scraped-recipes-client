@@ -21,14 +21,17 @@ export function useSearchRecipe(url) {
 
     const handleSearchSubmit = async (url) => {
         setLoading(true);
-        const { response } = await searchUrl(url)
+        const response = await searchUrl(url);
+        console.log('response: ', response);
         if (response.status >= 400) {
             setLoading(false);
             setError("Sorry, we couldn't find that URL!");
             throw new Error("Server responded with an error");
         }
         else {
-            const responseData = response.json();
+            const responseData = await response.json();
+            console.log('response data: ', responseData);
+            console.log('responseData.data: ', responseData.data);
             const stepsArr = [...responseData.data.steps];
             const stepsObj = {};
             stepsArr.forEach(function (step, idx) {
