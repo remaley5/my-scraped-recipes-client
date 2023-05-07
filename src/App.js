@@ -6,12 +6,12 @@ import CreateRecipes from "./Components/CreateRecipes";
 import Layout from "./Components/Layout";
 import LandingPage from "./Components/LandingPage";
 import Protected from "./Components/Protected";
-import { useAuthValidator } from "./Components/hooks/useAuthValidate";
+import { useAuth } from "./Components/hooks/useAuth";
 import HomePage from "./Components/HomePage";
 
 export default function App() {
 
-  const {isLoggedIn, checkSessionAuth} = useAuthValidator();
+  const {isLoggedIn, checkSessionAuth} = useAuth();
 
   useEffect(() => {
     checkSessionAuth();
@@ -20,8 +20,10 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/" element={<Layout isLoggedIn={isLoggedIn}/>}>
+
           <Route index element={<LandingPage />} />
+
           <Route
             path="home"
             element={

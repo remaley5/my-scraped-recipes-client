@@ -1,10 +1,8 @@
 import { useState } from "react";
-//import { useNavigate } from "react-router-dom";
 import { fetchSignup } from "../services/auth.service";
 
-export const useAuthValidator = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-    //const navigate = useNavigate();
+export const useAuth = () => {
+    const [isLoggedIn, setIsLoggedIn] = useState('false');
 
 
     const setAuth = (val) => {
@@ -14,13 +12,16 @@ export const useAuthValidator = () => {
 
     // check if user is signed in, update state and session
     const checkSessionAuth = () => {
-        var auth = sessionStorage.getItem('isLoggedIn');    
+        var auth = sessionStorage.getItem('isLoggedIn');  
+        // console.log('check session auth', auth);
         // if auth is false or doesn't exist
-        if(!auth) {
-            setAuth(false);
+        if(!auth || auth === 'false') {
+            // console.log('setting auth false');
+            setAuth('false');
         // if user is signed in update state
         } else {
-            setIsLoggedIn(true);
+            // console.log('setting auth true');
+            setIsLoggedIn('true');
         }
     }
 
@@ -28,6 +29,7 @@ export const useAuthValidator = () => {
         // post to db
         const response = await fetchSignup(user);
         const responseData = await(response.json());
+        // console.log('responseData', responseData);
         // add userId to session
         sessionStorage.setItem('user', responseData.id);
         // set auth in session, update state

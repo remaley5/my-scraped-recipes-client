@@ -10,6 +10,7 @@ const LoginForm = props => {
 
   //const { errors, validateForm, onBlurField } = useLoginFormValidator(form);
   const { errors, validateForm } = useLoginFormValidator(form);
+  
 
   const onUpdateField = e => {
     const field = e.target.name;
@@ -30,8 +31,7 @@ const LoginForm = props => {
     e.preventDefault();
     const { isValid } = validateForm({ form, errors, forceTouchErrors: true });
     if (!isValid) return;
-    console.log('Log in: ', form);
-    alert(JSON.stringify(form, null, 2));
+
   };
 
   return (

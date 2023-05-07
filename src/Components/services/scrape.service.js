@@ -1,6 +1,6 @@
 // make database call
 export async function searchUrl(url) {
-    console.log('url: ', url);
+    // console.log('url: ', url);
     return await fetch("http://localhost:9000/recipes/scrape", {
         method: "post",
         headers: { "Content-Type": "application/json" },

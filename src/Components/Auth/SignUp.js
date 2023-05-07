@@ -1,7 +1,8 @@
 import { useState } from "react";
 import '../../Styles/forms.css';
 import {useSignupFormValidator} from "../hooks/useSignupValidators";
-import { useAuthValidator } from "../hooks/useAuthValidate";
+import { useAuth } from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 function SignUpForm() {
     const [form, setForm] = useState({
@@ -12,7 +13,8 @@ function SignUpForm() {
     });
 
     const {errors, validateForm } = useSignupFormValidator(form);
-    const {isLoggedIn, signupUser} = useAuthValidator();
+    const {isLoggedIn, signupUser} = useAuth();
+    const navigate = useNavigate();
     
     const onUpdateField = e => {
         const field = e.target.name;
@@ -33,12 +35,17 @@ function SignUpForm() {
     const onSubmitForm = e => {
         e.preventDefault();
         const {isValid} = validateForm({form, errors, forceTouchErrors: true});
+        // console.log('submit ', isValid);
         if(!isValid) return;
-        console.log('signup valid', form);
+        // console.log('signup valid', form);
         if(isValid) {
-            signupUser(form);
+            const signup = async() => {
+                await signupUser(form);
+                // console.log('signedup', isLoggedIn);
+                navigate('/home');
+            }
+            signup();
         }
-        //alert(JSON.stringify(form, null, 2));
     };
 
     return (
