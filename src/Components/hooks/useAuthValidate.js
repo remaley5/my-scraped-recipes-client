@@ -1,36 +1,44 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 import { fetchSignup } from "../services/auth.service";
 
 export const useAuthValidator = () => {
-    const [authenticated, setAuthenticated] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    //const navigate = useNavigate();
 
 
     const setAuth = (val) => {
-        setAuthenticated(val);
-        sessionStorage.setItem('authenticated', val);
+        setIsLoggedIn(val);
+        sessionStorage.setItem('isLoggedIn', val);
     }
 
+    // check if user is signed in, update state and session
     const checkSessionAuth = () => {
-        var auth = sessionStorage.getItem('authenticated');
+        var auth = sessionStorage.getItem('isLoggedIn');    
+        // if auth is false or doesn't exist
         if(!auth) {
             setAuth(false);
+        // if user is signed in update state
         } else {
-            setAuthenticated(true);
+            setIsLoggedIn(true);
         }
     }
 
     const signupUser = async(user) => {
+        // post to db
         const response = await fetchSignup(user);
         const responseData = await(response.json());
-        console.log('response.data: ', responseData.data);
+        // add userId to session
+        sessionStorage.setItem('user', responseData.id);
+        // set auth in session, update state
         setAuth(true);
-
+        // re-route
+        //navigate('/home');
     }
 
     const loginUser = (user) => {
         
     }
 
-    return {authenticated, signupUser, checkSessionAuth, loginUser};
+    return {isLoggedIn, signupUser, checkSessionAuth, loginUser};
 }

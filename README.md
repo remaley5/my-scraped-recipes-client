@@ -3,7 +3,10 @@
 
 ## Tutorials
 ### Login Authentication
-https://www.telerik.com/blogs/how-to-create-validate-react-form-hooks
+[Create Validate React Form Hooks](https://www.telerik.com/blogs/how-to-create-validate-react-form-hooks)
+
+### Navigate with react
+[Redirect User after Login React](https://www.makeuseof.com/redirect-user-after-login-react/)
 
 # Getting Started with Create React App
 

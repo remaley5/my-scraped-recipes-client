@@ -12,7 +12,7 @@ function SignUpForm() {
     });
 
     const {errors, validateForm } = useSignupFormValidator(form);
-    const {authenticated, signupUser} = useAuthValidator();
+    const {isLoggedIn, signupUser} = useAuthValidator();
     
     const onUpdateField = e => {
         const field = e.target.name;
