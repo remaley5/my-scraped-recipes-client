@@ -1,8 +1,11 @@
 import { useState } from "react";
 import '../../Styles/forms.css';
 import { useLoginFormValidator } from "../hooks/useLoginValidators";
+import { useAuth } from "../hooks/useAuth";
+import { redirect, useNavigate } from "react-router-dom";
 
-const LoginForm = props => {
+
+const LoginForm = () => {
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -10,7 +13,10 @@ const LoginForm = props => {
 
   //const { errors, validateForm, onBlurField } = useLoginFormValidator(form);
   const { errors, validateForm } = useLoginFormValidator(form);
-  
+  const {loginUser} = useAuth();
+  const navigate = useNavigate();
+
+
 
   const onUpdateField = e => {
     const field = e.target.name;
@@ -31,6 +37,14 @@ const LoginForm = props => {
     e.preventDefault();
     const { isValid } = validateForm({ form, errors, forceTouchErrors: true });
     if (!isValid) return;
+    if(isValid) {
+      const login = async() => {
+        await loginUser(form);        
+        console.log("hit logged in user")
+        return navigate("/home");
+      }
+      login();
+    }
 
   };
 

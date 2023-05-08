@@ -13,7 +13,7 @@ function SignUpForm() {
     });
 
     const {errors, validateForm } = useSignupFormValidator(form);
-    const {isLoggedIn, signupUser} = useAuth();
+    const {signupUser} = useAuth();
     const navigate = useNavigate();
     
     const onUpdateField = e => {

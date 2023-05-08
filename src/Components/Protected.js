@@ -1,11 +1,10 @@
 import { Navigate } from "react-router-dom";
 const Protected = ({ isLoggedIn, children }) => {
-   // // console.log('renavigating', isLoggedIn);
-  //  // console.log('!isLoggedIn || isLoggedIn === "false"', !isLoggedIn || isLoggedIn === "false");
-    if (!!isLoggedIn || isLoggedIn === 'true') {
-//        // console.log('returning children');
+    
+    if (isLoggedIn === 'true') {
         return children;
+    } else {
+        return <Navigate to="/" replace />;
     }
-    return <Navigate to="/" replace />;
 };
 export default Protected;
