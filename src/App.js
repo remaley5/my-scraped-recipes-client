@@ -20,11 +20,12 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout isLoggedIn={isLoggedIn}/>}>
+        {/* <Route path="/" element={<Layout isLoggedIn={isLoggedIn}/>}> */}
 
           <Route index element={<LandingPage />} />
-
-          <Route
+          <HomePage path="home"/>
+      
+          {/* <Route
             path="home"
             element={
               <Protected isLoggedIn={isLoggedIn}>
@@ -36,10 +37,10 @@ export default function App() {
             path="create"
             element={
               <Protected isLoggedIn={isLoggedIn}>
-                <CreateRecipes/>
+                <CreateRecipes />
               </Protected>
             }
-          />
+          /> */}
         </Route>
       </Routes>
     </BrowserRouter>
