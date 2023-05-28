@@ -1,8 +1,11 @@
 import '../Styles/forms.css';
 import IngredientEditor from './RecipeEditor/IngredientEditor';
-import StepEditor from './RecipeEditor/StepEditor'
+import StepEditor from './RecipeEditor/StepEditor';
+import { useSearchRecipe } from './hooks/useSearchRecipe';
 
-function RecipeEditor({handleFormProgress, updateSteps, updateIngredients, ingredients, steps, progress}) {
+function RecipeEditor() {
+
+    const {updateIngredients, updateSteps, handleFormProgress, steps, ingredients, progress} = useSearchRecipe();
 
     const handleIngredientChange = (event, keyname) => {
         const newIngObj = {...ingredients};
