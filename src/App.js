@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import CreateRecipes from "./Components/CreateRecipes";
-// import Layout from "./Components/Layout";
+import Layout from "./Components/Layout";
 import LandingPage from "./Components/LandingPage";
 // import Protected from "./Components/Protected";
 import { useAuth } from "./Components/hooks/useAuth";
@@ -11,7 +11,7 @@ import HomePage from "./Components/HomePage";
 
 export default function App() {
 
-  const {checkSessionAuth} = useAuth();
+  const {checkSessionAuth, isLoggedIn} = useAuth();
 
   useEffect(() => {
     checkSessionAuth();
@@ -20,7 +20,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* <Route path="/" element={<Layout isLoggedIn={isLoggedIn}/>}> */}
+        <Route path="/" element={<Layout isLoggedIn={isLoggedIn}/>}> */
 
           <Route index element={<LandingPage />} />
           <Route index path="home" element={<HomePage />} />
@@ -42,7 +42,7 @@ export default function App() {
               </Protected>
             }
           /> */}
-        {/* </Route> */}
+        </Route>
       </Routes>
     </BrowserRouter>
   );
