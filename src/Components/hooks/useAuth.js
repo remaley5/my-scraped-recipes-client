@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { fetchSignup } from "../services/auth.service";
+import { fetchSignup, fetchLogin } from "../services/auth.service";
 
 export const useAuth = () => {
     const [isLoggedIn, setIsLoggedIn] = useState('false');
 
-
     const setAuth = (val) => {
+        console.log('updating isLoggedIn', val);
         setIsLoggedIn(val);
         sessionStorage.setItem('isLoggedIn', val);
+        //console.log('isLoggedIn', isLoggedIn);
     }
 
     // check if user is signed in, update state and session
@@ -33,14 +34,22 @@ export const useAuth = () => {
         // add userId to session
         sessionStorage.setItem('user', responseData.id);
         // set auth in session, update state
-        setAuth(true);
+        setAuth('true');
         // re-route
         //navigate('/home');
     }
 
-    const loginUser = (user) => {
-        
+    const loginUser = async(user) => {
+        const response = await fetchLogin(user);
+        const responseData = await(response.json());
+        sessionStorage.setItem('user', responseData.id);
+        setAuth('true');
     }
 
-    return {isLoggedIn, signupUser, checkSessionAuth, loginUser};
+    const logoutUser = () => {
+        setAuth('false');
+        sessionStorage.removeItem('user');
+    }
+
+    return {isLoggedIn, signupUser, checkSessionAuth, loginUser, logoutUser};
 }
