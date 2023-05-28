@@ -2,7 +2,7 @@ import { useState } from "react";
 import '../../Styles/forms.css';
 import { useLoginFormValidator } from "../hooks/useLoginValidators";
 import { useAuth } from "../hooks/useAuth";
-import { redirect, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 const LoginForm = () => {
@@ -38,8 +38,6 @@ const LoginForm = () => {
     const { isValid } = validateForm({ form, errors, forceTouchErrors: true });
     console.log('Is valid?', isValid);
     if (!isValid) return;
-<<<<<<< HEAD
-=======
     if(isValid) {
       const login = async() => {
         await loginUser(form);        
@@ -49,7 +47,6 @@ const LoginForm = () => {
       login();
     }
 
->>>>>>> auth
   };
 
   return (
