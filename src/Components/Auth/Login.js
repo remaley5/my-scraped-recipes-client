@@ -30,8 +30,8 @@ const LoginForm = props => {
   const onSubmitForm = e => {
     e.preventDefault();
     const { isValid } = validateForm({ form, errors, forceTouchErrors: true });
+    console.log('Is valid?', isValid);
     if (!isValid) return;
-
   };
 
   return (
