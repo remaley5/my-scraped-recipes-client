@@ -11,6 +11,7 @@ function SearchForm({ loading, error, handleSearchSubmit }) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        console.log('clicking "submit search" button', handleSearchSubmit);
         handleSearchSubmit(url);
     };
 

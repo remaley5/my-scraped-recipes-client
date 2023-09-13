@@ -20,27 +20,28 @@ export function useSearchRecipe(url) {
     }
 
     const handleSearchSubmit = async (url) => {
+        console.log('handle Search submit');
         setLoading(true);
-        // const response = await searchUrl(url);
-        // // console.log('response: ', response);
-        // if (response.status >= 400) {
-        //     setLoading(false);
-        //     setError("Sorry, we couldn't find that URL!");
-        //     throw new Error("Server responded with an error");
-        // }
-        // else {
-        //     const responseData = await response.json();
-        //     // console.log('response data: ', responseData);
-        //     // console.log('responseData.data: ', responseData.data);
-            // const stepsArr = [...responseData.data.steps];
+        const response = await searchUrl(url);
+        console.log('response: ', response);
+        if (response.status >= 400) {
+            setLoading(false);
+            setError("Sorry, we couldn't find that URL!");
+            throw new Error("Server responded with an error");
+        }
+        else {
+            const responseData = await response.json();
+            // console.log('response data: ', responseData);
+            // console.log('responseData.data: ', responseData.data);
+            const stepsArr = [...responseData.data.steps];
         // HARDCODE -----------------------------------------
 
-        const stepsArr = [
-            "step 1 asdlkfasd;lkfads;lfk", 
-            "step 2;aksdjf;asdkfj;asldkfj", 
-            "step 3 as;dlfkjas;dlfkasjd;flk", 
-            "step 4 a;sldkfja;sdlkfjas;dlkf"
-        ]
+        // const stepsArr = [
+        //     "step 1 asdlkfasd;lkfads;lfk", 
+        //     "step 2;aksdjf;asdkfj;asldkfj", 
+        //     "step 3 as;dlfkjas;dlfkasjd;flk", 
+        //     "step 4 a;sldkfja;sdlkfjas;dlkf"
+        // ]
 
         // --------------------------------------------------
             const stepsObj = {};
@@ -48,14 +49,14 @@ export function useSearchRecipe(url) {
                 stepsObj[idx + 1] = step;
             });
 
-        //     const ingredientsArray = [...responseData.data.ingredients];
+            const ingredientsArray = [...responseData.data.ingredients];
         // HARDCODE -----------------------------------------
-            const ingredientsArray = [
-                {quantity: "2", unit: "cups", name: "flour"}, 
-                {quantity: ".5", unit: "tbsp", name: "oil"}, 
-                {quantity: "3", unit: "large", name: "eggs" }, 
-                {quantity: "16", unit: "tbsp", name:"butter" }
-            ]
+            // const ingredientsArray = [
+            //     {quantity: "2", unit: "cups", name: "flour"}, 
+            //     {quantity: ".5", unit: "tbsp", name: "oil"}, 
+            //     {quantity: "3", unit: "large", name: "eggs" }, 
+            //     {quantity: "16", unit: "tbsp", name:"butter" }
+            // ]
         // ---------------------------------------------------
 
             const ingredientsObj = {};
@@ -66,7 +67,7 @@ export function useSearchRecipe(url) {
             updateSteps(stepsObj);
             updateIngredients(ingredientsObj);
             setLoading(false);
-        //}
+        }
     }
 
     const checkLocalStorage = () => {
