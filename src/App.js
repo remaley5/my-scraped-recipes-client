@@ -10,7 +10,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />} />
+          <Route index path="home" element={<HomePage />} />
           <Route path="create" element={<CreateRecipes />} />
         </Route>
       </Routes>
