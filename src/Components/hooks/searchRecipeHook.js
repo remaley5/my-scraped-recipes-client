@@ -43,7 +43,7 @@ export function useSearchRecipe(url) {
             ingredientsArray.forEach(function (ingredient, idx) {
                 ingredientsObj[idx + 1] = ingredient;
             });
-
+            setError("");
             updateSteps(stepsObj);
             updateIngredients(ingredientsObj);
             setLoading(false);
