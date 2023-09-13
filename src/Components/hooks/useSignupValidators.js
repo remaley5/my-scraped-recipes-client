@@ -17,7 +17,7 @@ const touchErrors = errors => {
   }, {});
 };
 
-export const useSignupFormValidator = form => {
+export const useSignupFormValidator = () => {
   const [errors, setErrors] = useState({
     email: {
       dirty: false,

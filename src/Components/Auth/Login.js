@@ -4,7 +4,8 @@ import { useLoginFormValidator } from "../hooks/useLoginValidators";
 import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 
-const LoginForm = props => {
+
+const LoginForm = () => {
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -33,6 +34,7 @@ const LoginForm = props => {
   const onSubmitForm = e => {
     e.preventDefault();
     const { isValid } = validateForm({ form, errors, forceTouchErrors: true });
+    console.log('Is valid?', isValid);
     if (!isValid) return;
     const login = async() => {
       await loginUser(form);        

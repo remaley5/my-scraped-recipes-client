@@ -1,5 +1,4 @@
-
-  import { useState } from "react";
+import { useState } from "react";
 import { fetchSignup, fetchLogin } from "../services/auth.service";
 
 export const useAuth = () => {

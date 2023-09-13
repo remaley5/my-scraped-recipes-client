@@ -3,7 +3,7 @@ import Steps from './RecipeSearch/Steps';
 import SearchForm from './RecipeSearch/SearchForm';
 import RecipeEditor from './RecipeEditor';
 import React, {useEffect} from 'react';
-import { useSearchRecipe } from './hooks/searchRecipeHook';
+import { useSearchRecipe } from './hooks/useSearchRecipe';
 import '../Styles/search.css';
 import '../Styles/forms.css';
 
