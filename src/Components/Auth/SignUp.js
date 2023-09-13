@@ -35,13 +35,13 @@ function SignUpForm() {
     const onSubmitForm = e => {
         e.preventDefault();
         const {isValid} = validateForm({form, errors, forceTouchErrors: true});
-        // console.log('submit ', isValid);
+        // // console.log('submit ', isValid);
         if(!isValid) return;
-        // console.log('signup valid', form);
+        // // console.log('signup valid', form);
         if(isValid) {
             const signup = async() => {
                 await signupUser(form);
-                // console.log('signedup', isLoggedIn);
+                // // console.log('signedup', isLoggedIn);
                 navigate('/home');
             }
             signup();

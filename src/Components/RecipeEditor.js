@@ -26,7 +26,7 @@ function RecipeEditor({ updateIngredients, updateSteps, handleFormProgress, step
             ingredients
         }
         var response = await fetchRecipe(recipe);
-        console.log('response: ', response);
+        // console.log('response: ', response);
     }
 
     return (

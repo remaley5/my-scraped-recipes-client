@@ -36,12 +36,12 @@ const LoginForm = () => {
   const onSubmitForm = e => {
     e.preventDefault();
     const { isValid } = validateForm({ form, errors, forceTouchErrors: true });
-    console.log('Is valid?', isValid);
+    // console.log('Is valid?', isValid);
     if (!isValid) return;
     if(isValid) {
       const login = async() => {
         await loginUser(form);        
-        console.log("hit logged in user")
+        // console.log("hit logged in user")
         return navigate("/home");
       }
       login();

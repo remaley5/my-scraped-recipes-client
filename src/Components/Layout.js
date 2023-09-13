@@ -8,7 +8,7 @@ const Layout = (isLoggedIn) => {
   const {logoutUser} = useAuth();
 
   const handleLogout = () => {
-    console.log('clicked logout');
+//    // console.log('clicked logout');
     logoutUser();
     navigate('/');
   };

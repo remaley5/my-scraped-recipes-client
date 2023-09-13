@@ -20,10 +20,10 @@ export function useSearchRecipe(url) {
     }
 
     const handleSearchSubmit = async (url) => {
-        console.log('handle Search submit');
+        // console.log('handle Search submit');
         setLoading(true);
         const response = await searchUrl(url);
-        console.log('response: ', response);
+        // console.log('response: ', response);
         if (response.status >= 400) {
             setLoading(false);
             setError("Sorry, we couldn't find that URL!");
@@ -31,8 +31,8 @@ export function useSearchRecipe(url) {
         }
         else {
             const responseData = await response.json();
-            // console.log('response data: ', responseData);
-            // console.log('responseData.data: ', responseData.data);
+            // // console.log('response data: ', responseData);
+            // // console.log('responseData.data: ', responseData.data);
             const stepsArr = [...responseData.data.steps];
         // HARDCODE -----------------------------------------
 
@@ -88,7 +88,7 @@ export function useSearchRecipe(url) {
         // Track Form Progress
     const handleFormProgress = (event, progressState) => {
         event.preventDefault();
-        //// console.log('setting progress state');
+        //// // console.log('setting progress state');
         setProgress(progressState);
         window.sessionStorage.setItem('progress', progressState);
     }

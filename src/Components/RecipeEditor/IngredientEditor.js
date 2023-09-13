@@ -6,7 +6,7 @@ function IngredientEditor({name, unit, quantity, idx, handleIngredientChange}) {
 
     const handleDisabled = (event) => {
         event.preventDefault();
-        // console.log('disabled ', disabled);
+        // // console.log('disabled ', disabled);
         if(!!disabled) {
             setDisabled(false);
         } else {
