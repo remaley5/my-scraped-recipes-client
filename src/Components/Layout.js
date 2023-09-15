@@ -1,3 +1,25 @@
+// import { Outlet, Link } from "react-router-dom";
+// const Layout = () => {
+//   return (
+//     <>
+//       <nav>
+//         <ul>
+//           <li>
+//             <Link to="/">Home</Link>
+//           </li>
+//           <li>
+//             <Link to="/create">Recipes</Link>
+//           </li>
+//         </ul>
+//       </nav>
+
+//       <Outlet />
+//     </>
+//   )
+// };
+
+// export default Layout;
+
 import { Outlet, Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./hooks/useAuth";
