@@ -1,0 +1,133 @@
+$font-stack: Helvetica, san-serif;
+$l-one:  rgb(253, 231, 239);
+$l-two: rgb(251, 183, 195);
+$l-three: rgb(247, 247, 248);
+$m-one: rgb(230, 122, 122);
+$m-two: rgb(245, 144, 158);
+$d-one: rgb(0, 79, 122);
+$d-two: rgb(47, 12, 12); // rgb(22, 0, 66);
+$d-three: rgb(151, 85, 85);
+$d-four: rgb(47, 12, 12);
+
+
+body {
+    background-color: $l-three;
+    header {
+        //background-color: $l-three;
+        font-size: 20px !important;
+        letter-spacing: 1px;
+        a, button {
+            text-transform: uppercase;
+        }
+        nav {
+            margin-right: 100px;
+            ul, .left-nav, .right-nav, li {
+                list-style: none;
+                display:flex;
+                flex-direction: row;
+            }
+
+            ul {
+                justify-content: space-between;
+            }
+            
+            a {
+                text-decoration: none;
+            }
+
+            .left-nav {
+                li {
+                    //border-bottom: 5px solid $m-two;
+                    gap: 5px;
+                    text-transform: uppercase;
+                    align-items: center;
+                    .circle {
+                        height: 30px;
+                        width: 30px;
+                        background-color: $m-one;
+                    }
+                    a {
+                        color:black;
+                        margin-right: 10px;
+                    }
+                }
+            }
+
+            .right-nav {
+                gap: 60px;
+                a, button {
+                    line-height: 50px;
+                    padding: 0px 20px ;
+                }
+                a {
+                    border: 3px solid black;
+                    color: black;
+                }
+                button {
+                    background-color: $l-two;
+                    color: black;
+                    border: 3px solid $l-two;
+                }
+                a:hover {
+                    border: 3px solid $d-one;
+                    background-color: $d-one;
+                    color: white
+                }
+                button:hover {
+                    background-color: white;
+                    border: 3px solid $d-three;
+                    color: $d-three;
+                }
+            }
+
+        }
+    }
+    footer {
+        height: 50px;
+        padding: 30px;
+        background-color: $l-one;
+    }
+    .logo {
+        display:flex;
+        flex-direction: row;
+        line-height: 25px;
+        gap: 10px;
+        margin-left: 50px;
+        .text {
+            display:flex;
+            flex-direction: column;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: $d-three;
+        }
+        .half-circle {
+            display:block;
+            background-color: $d-one;
+            height: 50px;
+            width: 20px;
+            border-radius: 10px 0px 0px 10px;
+        }
+        .square {
+            display:block;
+            height: 40px;
+            width: 50px;
+            border: 5px solid $l-two;
+
+        }
+    }
+
+    a .logo:hover {
+        .text {
+            color: black;
+        }
+        .half-circle {
+            background-color: $d-three;
+        }
+        .square {
+            border: 5px solid $d-one;
+            background-color: $d-one;
+
+        }
+    }
+}

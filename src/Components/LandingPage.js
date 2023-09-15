@@ -1,5 +1,6 @@
 import LoginForm from "./Auth/Login";
 import SignUpForm from "./Auth/SignUp";
+import '../Styles/forms.css'
 
 function LandingPage() {
     return (
