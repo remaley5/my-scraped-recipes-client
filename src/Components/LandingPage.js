@@ -1,15 +1,25 @@
 import LoginForm from "./Auth/Login";
 import SignUpForm from "./Auth/SignUp";
-import '../Styles/forms.css'
+import '../Styles/Layout/main.css';
 
 function LandingPage() {
-    return (
-        <div> 
-            <h1>Welcome!</h1>
-            <LoginForm/>
+  return (
+    <div>
+      <div className="landing">
+        <h1>Welcome!</h1>
+        <div className="landing-forms">
+          <div className="form-container">
+            <h2>Sign Up</h2>
             <SignUpForm/>
+          </div>
+          <div className="form-container">
+            <h2>Log in</h2>
+            <LoginForm/>
+          </div>
         </div>
-      );
-    }
-  
-  export default LandingPage;
+      </div>
+    </div>
+  );
+}
+
+export default LandingPage;

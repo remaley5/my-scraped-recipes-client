@@ -1,0 +1,18 @@
+.landing {
+  margin: auto;
+}
+.landing .landing-forms {
+  display: flex;
+  flex-direction: row;
+  gap: 7%;
+  width: 100%;
+}
+.landing .landing-forms .form-container {
+  width: 50%;
+  max-width: 500px;
+  min-width: 200px;
+  background-color: white;
+  padding: 5%;
+}
+
+/*# sourceMappingURL=main.css.map */

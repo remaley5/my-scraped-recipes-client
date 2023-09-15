@@ -2,7 +2,7 @@
 import { Outlet, Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./hooks/useAuth";
-import '../Styles/layout.css';
+import '../Styles/Layout/layout.css';
 
 const Layout = (isLoggedIn) => {
 
@@ -24,7 +24,7 @@ const Layout = (isLoggedIn) => {
               <li>
                 <Link to={!!isLoggedIn ? '/home' : '/'}>
                   <div className="logo">
-                    <i className="half-circle" /><i className="square" /><div className="text">Flavor<div className="text">scrape</div></div>
+                    <i className="half-circle" /><i className="square" /><div className="text">Recipe<div className="text">clips</div></div>
                   </div>
                 </Link>
               </li>
@@ -45,7 +45,7 @@ const Layout = (isLoggedIn) => {
       </main>
       <footer>
         <div className="logo">
-          <i className="half-circle" /><i className="square" /><div className="text">Flavor<div>scrape</div></div>
+          <i className="half-circle" /><i className="square" /><div className="text">Flavor<div>scraper</div></div>
         </div>
       </footer>
     </>

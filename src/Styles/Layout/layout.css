@@ -48,6 +48,8 @@ body header nav .right-nav a {
   color: black;
 }
 body header nav .right-nav button {
+  font-size: 20px;
+  font-weight: bold;
   background-color: rgb(251, 183, 195);
   color: black;
   border: 3px solid rgb(251, 183, 195);
@@ -61,6 +63,9 @@ body header nav .right-nav button:hover {
   background-color: white;
   border: 3px solid rgb(151, 85, 85);
   color: rgb(151, 85, 85);
+}
+body main {
+  margin-bottom: 100px;
 }
 body footer {
   height: 50px;
@@ -81,6 +86,7 @@ body .logo .text {
   letter-spacing: 1px;
   text-transform: uppercase;
   color: rgb(151, 85, 85);
+  text-align: start;
 }
 body .logo .half-circle {
   display: block;
@@ -104,6 +110,9 @@ body a .logo:hover .half-circle {
 body a .logo:hover .square {
   border: 5px solid rgb(0, 79, 122);
   background-color: rgb(0, 79, 122);
+}
+body main {
+  padding: 7%;
 }
 
 /*# sourceMappingURL=layout.css.map */

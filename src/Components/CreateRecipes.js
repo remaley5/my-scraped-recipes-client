@@ -5,7 +5,7 @@ import RecipeEditor from './RecipeEditor';
 import React, {useEffect} from 'react';
 import { useSearchRecipe } from './hooks/useSearchRecipe';
 import '../Styles/search.css';
-import '../Styles/forms.css';
+import '../Styles/Components/forms.css';
 
 function CreateRecipes() {
     const { loading, error, steps, ingredients, progress, handleSearchSubmit, updateIngredients, updateSteps, handleFormProgress,  checkLocalStorage} = useSearchRecipe();

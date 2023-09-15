@@ -1,4 +1,4 @@
-import '../Styles/forms.css';
+import '../Styles/Components/forms.css';
 import IngredientEditor from './RecipeEditor/IngredientEditor';
 import StepEditor from './RecipeEditor/StepEditor';
 import { fetchRecipe } from './services/recipe.service';

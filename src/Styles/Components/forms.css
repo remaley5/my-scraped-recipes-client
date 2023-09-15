@@ -1,0 +1,30 @@
+form .form-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+form label {
+  margin-bottom: 0.25rem;
+}
+form input {
+  padding: 0.5rem;
+}
+form .field-error {
+  border: 1px solid #e11d48;
+}
+form .field-error-msg {
+  color: #e11d48;
+}
+form .form-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+form .submit {
+  padding: 0.5rem 0.7rem;
+  min-width: 5rem;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/*# sourceMappingURL=forms.css.map */

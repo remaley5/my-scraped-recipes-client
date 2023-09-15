@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import '../../Styles/forms.css';
+import '../../Styles/Components/forms.css';
 
 function StepEditor({step, idx, handleStepChange}) {
     const [disabled, setDisabled] = useState(false);

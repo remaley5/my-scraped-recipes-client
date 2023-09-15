@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import '../../Styles/forms.css';
+import '../../Styles/Components/forms.css';
 
 function IngredientEditor({name, unit, quantity, idx, handleIngredientChange}) {
     const [disabled, setDisabled] = useState(false);

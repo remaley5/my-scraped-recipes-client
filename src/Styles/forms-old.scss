@@ -1,0 +1,229 @@
+// h1.create-heading {
+//   margin-left: 10%;
+//   margin-bottom: 80px;
+// }
+
+// button {
+//   font: inherit;
+//   font-size: inherit;
+//   background-color: inherit;
+//   color: inherit;
+//   border: none;
+// }
+
+// .progressbar {
+//   display: flex;
+//   flex-direction: row;
+//   padding-left: 10%;
+//   border-bottom: 3px solid rgb(58, 58, 108);
+//   font-size: 20px;
+//   font-weight: bold;
+//   margin-bottom: 0px;
+// }
+
+// .progressbar li {
+//   border-radius: 0px 50px 0 0;
+//   box-sizing: border-box;
+//   overflow: hidden;
+// }
+
+// .progressbar li .number {
+//   font-weight: bold;
+//   font-size: 25px;
+// }
+
+// .progressbar li.first, .progressbar li.second {
+//   border: 2px solid rgb(58, 58, 108);
+//   border-bottom: none;
+// }
+
+// .progressbar li:not(.current) {
+//   background-color: rgb(58, 58, 108);
+//   color: white;
+// }
+
+// .progressbar li.second:not(.current) {
+//   border: 3px solid white;
+//   border-bottom: none;
+// }
+
+// .progressbar li.current {
+//   color: rgb(58, 58, 108);
+//   border: 2px solid rgb(58, 58, 108);
+//   border-bottom: none;
+// }
+
+// .progressbar li.first.current {
+//   background-color: rgb(216, 241, 253);
+// }
+
+// .progressbar li.second.current {
+//   background-color: rgb(255, 241, 241);
+// }
+
+// .progressbar li.third, .progressbar li.second {
+//   padding: 20px 50px 20px 80px;
+//   border-radius: 0px 50px 0 0;
+//   margin-left: -80px;
+// }
+
+// .progressbar li.first {
+//   padding: 20px 50px 20px 50px;
+//   border-radius: 20px 50px 0 0;
+//   z-index: 2;
+// }
+
+// .progressbar li.second {
+//   z-index: 1;
+// }
+
+// .progressbar li.third {
+//   z-index: 0;
+// }
+
+// .progressbar li:has(button:enabled):hover {
+//   color: rgb(58, 58, 108);
+//   border: 2px solid rgb(58, 58, 108);
+//   border-bottom: none;
+//   background-color: white;
+// }
+
+// form.search-form {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 20px;
+//   padding: 20px;
+// }
+
+// form.search-form .control-wrap {
+//   display: flex;
+//   flex-direction: row;
+//   gap: 20px;
+// }
+
+// form.search-form label {
+//   font-family: Helvetica, san-serif;
+//   font-weight: 700;
+//   font-size: 30px;
+//   color: rgb(23, 23, 49);
+// }
+
+// form.search-form input {
+//   width: 100%;
+//   border: 1px solid rgb(152, 197, 253);
+//   padding: 10px;
+//   font-size: 20px;
+//   border-radius: 5px;
+// }
+
+// form.search-form button {
+//   width: 250px;
+//   background-color: rgb(58, 58, 108);
+//   color: white;
+//   font-weight: bold;
+//   font-size: 20px;
+//   border-radius: 5px;
+//   border: none;
+//   box-shadow: 0px 0px 10px 1px white;
+// }
+
+// form.search-form .error {
+//   color: rgb(241, 11, 43);
+//   font-weight: 600;
+//   font-size: 20px;
+//   letter-spacing: 0.5px;
+// }
+
+// .submit-button {
+//   padding: 20px;
+//   font-size: 23px;
+// }
+
+// form.recipe-editor {
+//   background-color: rgb(255, 241, 241);
+//   padding: 50px 10% 50px 10%;
+//   display: flex;
+//   flex-direction: column;
+//   gap: 50px;
+//   padding-top: 50px;
+// }
+
+// form.recipe-editor textarea {
+//   height: 200px;
+// }
+
+// form.recipe-editor legend, form.recipe-editor .step label {
+//   font-size: 25px;
+// }
+
+// form.recipe-editor .item {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 10px;
+//   font-size: 16px;
+// }
+
+// form.recipe-editor .item input, form.recipe-editor .item textarea {
+//   padding: 10px;
+//   font-size: 20px;
+// }
+
+// form.recipe-editor fieldset {
+//   background-color: white;
+//   padding: 20px;
+//   display: flex;
+//   flex-direction: row;
+//   gap: 20px;
+//   width: 100%;
+// }
+
+// form.recipe-editor fieldset .item.qty {
+//   flex-grow: 0.5;
+// }
+
+// form.recipe-editor fieldset .item.unit {
+//   flex-grow: 0.5;
+// }
+
+// form.recipe-editor fieldset .item.name {
+//   flex-grow: 20;
+// }
+
+// /*# sourceMappingURL=Components/forms.css.map */
+// .form-item {
+//   display: flex;
+//   flex-direction: column;
+//   margin-bottom: 1rem;
+// }
+
+// .form-label {
+//   margin-bottom: 0.25rem;
+// }
+
+// .field {
+//   padding: 0.5rem;
+// }
+
+// .field-error {
+//   border: 1px solid #e11d48;
+// }
+
+// .field-error-msg {
+//   color: #e11d48;
+// }
+
+// .form-actions {
+//   display: flex;
+//   justify-content: flex-end;
+// }
+
+// .submit {
+//   padding: 0.5rem 0.7rem;
+//   min-width: 5rem;
+//   background-color: #9333ea;
+//   color: #f3e8ff;
+//   text-transform: uppercase;
+//   font-weight: 500;
+// }
+
+// /*# sourceMappingURL=forms.scss.map */

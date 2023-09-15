@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../../Styles/forms.css";
+import "../../Styles/Components/forms.css";
 import { MagnifyingGlass } from "react-loader-spinner";
 
 function SearchForm({ loading, error, handleSearchSubmit }) {

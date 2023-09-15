@@ -1,5 +1,5 @@
 import { useState } from "react";
-import '../../Styles/forms.css';
+//import '../../Styles/Components/forms.css';
 import {useSignupFormValidator} from "../hooks/useSignupValidators";
 import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
@@ -50,13 +50,13 @@ function SignUpForm() {
 
     return (
         <form className="form" onSubmit={onSubmitForm}>
-            <div className="formGroup">
-                <label for="signup-email" className="formLabel">Email<span className="required"> required</span></label>
+            <div className="form-item">
+                <label for="signup_email" className="form-label">Email<span className="required"> required</span></label>
                 <input
                     aria-required="true"
-                    className="formField"
+                    className="field"
                     type="text"
-                    id="signup-email"
+                    id="signup_email"
                     name="email"
                     value={form.email}
                     onChange={onUpdateField}
@@ -65,13 +65,13 @@ function SignUpForm() {
           <p className="error">{errors.email.message}</p>
         ) : null}
             </div>
-            <div className="formGroup">
-                <label for="signup-password" className="formLabel">Password <span className="required"> required</span></label>
+            <div className="form-item">
+                <label for="signup_password" className="form-label">Password <span className="required"> required</span></label>
                 <input
                     aria-required="true"
-                    className="formField"
+                    className="field"
                     type="password"
-                    id="signup-password"
+                    id="signup_password"
                     name="password"
                     value={form.password}
                     onChange={onUpdateField}
@@ -82,13 +82,13 @@ function SignUpForm() {
           </p>
         ) : null}
             </div>
-            <div className="formGroup">
-                <label for="signup-confirm-password" className="formLabel">Confirm Password<span className="required"> required</span></label>
+            <div className="form-item">
+                <label for="signup_confirm_password" className="form-label">Confirm Password<span className="required"> required</span></label>
                 <input
                     aria-required="true"
-                    className="formField"
+                    className="field"
                     type="password"
-                    id="signup-confirm-password"
+                    id="signup_confirm_password"
                     name="confirmPassword"
                     value={form.confirmPassword}
                     onChange={onUpdateField}
@@ -99,13 +99,13 @@ function SignUpForm() {
           </p>
         ) : null}
             </div>
-            <div className="formGroup">
-            <label for="signup-username" className="formLabel">Pick a username <span className="required"> required</span></label>
+            <div className="form-item">
+            <label for="signup_username" className="form-label">Pick a username <span className="required"> required</span></label>
             <input
                 aria-required="true"
-                className="formField"
+                className="field"
                 type="text"
-                id="signup-username"
+                id="signup_username"
                 name="username"
                 value={form.username}
                 onChange={onUpdateField}
@@ -116,8 +116,8 @@ function SignUpForm() {
             {errors.username.message}
           </p>
         ) : null}
-            <div className="formActions">
-                <button className="formSubmitBtn" type="submit">
+            <div>
+                <button className="submit" type="submit">
                     Sign Up
                 </button>
             </div>
