@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../../Styles/Components/forms.css";
+//import "../../Styles/Layout/main.css";
 import { MagnifyingGlass } from "react-loader-spinner";
 
 function SearchForm({ loading, error, handleSearchSubmit }) {
@@ -29,9 +30,10 @@ function SearchForm({ loading, error, handleSearchSubmit }) {
     ) : (
         <div>
             <form className="search-form" onSubmit={handleSubmit}>
+                <label for="url_input">Recipe Link</label>
                 <div className="control-wrap">
                     <input
-                        id="url-input"
+                        id="url_input"
                         name="url"
                         type="text"
                         autoComplete="true"

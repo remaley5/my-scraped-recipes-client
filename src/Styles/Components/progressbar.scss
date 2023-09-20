@@ -1,0 +1,87 @@
+$font-stack: Helvetica, san-serif;
+$l-one:  rgb(253, 231, 239);
+$l-two: rgb(251, 183, 195);
+$l-three: rgb(247, 247, 248);
+$m-one: rgb(230, 122, 122);
+$m-two: rgb(245, 144, 158);
+$d-one: rgb(0, 79, 122);
+$d-two: rgb(47, 12, 12); // rgb(22, 0, 66);
+$d-three: rgb(151, 85, 85);
+$d-four: rgb(47, 12, 12);
+
+
+.progressbar {
+    display: flex;
+    flex-direction: row;
+    margin-left: 0px;
+    //padding-left: 10%;
+    // border-bottom: 3px solid rgb(58, 58, 108);
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    button {
+        background: none;
+        color: inherit;
+        border: none;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+    }
+
+    li {
+        overflow: hidden;
+        border-radius: 0px 30px 30px 0px;
+        .number {
+            font-weight: bold;
+            font-size: 25px;
+        }
+    }
+
+    li.active {
+        border: 5px solid $l-two;
+        background-color: white;
+    }
+
+    li.disabled {
+        border: 5px solid rgb(159, 158, 158);
+        background-color: rgb(203, 200, 200);
+    }
+    li.clickable {
+        border: 5px solid $m-one;
+        background-color: $l-two;
+        color: $d-four;
+    }
+    li.clickable:hover,  li.clickable:focus {
+        border-color: $m-one;
+        color: $d-three;
+        background-color: white;
+    }
+    li.third,
+    li.second {
+        padding: 20px 50px 20px 80px;
+        // border-radius: 0px 50px 0 0;
+        margin-left: -80px;
+    }
+
+    li.first {
+        padding: 20px 50px 20px 50px;
+        // border-radius: 20px 50px 0 0;
+        z-index: 2;
+    }
+
+    li.second {
+        z-index: 1;
+    }
+
+    li.third {
+        z-index: 0;
+    }
+
+    li:has(button:enabled):hover {
+        //color: rgb(58, 58, 108);
+        // border: 2px solid rgb(58, 58, 108);
+        // border-bottom: none;
+        //background-color: white;
+    }
+}

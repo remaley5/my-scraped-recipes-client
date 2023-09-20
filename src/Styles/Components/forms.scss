@@ -1,3 +1,15 @@
+$font-stack: Helvetica, san-serif;
+$l-one:  rgb(253, 231, 239);
+$l-two: rgb(251, 183, 195);
+$l-three: rgb(247, 247, 248);
+$m-one: rgb(230, 122, 122);
+$m-two: rgb(245, 144, 158);
+$d-one: rgb(0, 79, 122);
+$d-two: rgb(47, 12, 12); // rgb(22, 0, 66);
+$d-three: rgb(151, 85, 85);
+$d-four: rgb(47, 12, 12);
+
+
 form {
     .form-item {
         display: flex;
@@ -10,9 +22,8 @@ form {
         margin-bottom: 0.25rem;
     }
 
-    input {
+    input, textarea {
         padding: 0.5rem;
-        //width: 100%;
     }
 
     .field-error {
@@ -35,4 +46,110 @@ form {
         font-weight: 500;
     }
 
+
+    //--------- SEARCH FORM --------- //
+
+    .search-form {
+          display: flex;
+          flex-direction: column;
+          //gap: 20px;
+          //padding: 20px;
+        }
+        
+        .control-wrap {
+          display: flex;
+          //flex-direction: row;
+          //gap: 20px;
+        }
+        
+        // label {
+        // //   font-family: Helvetica, san-serif;
+        // //   font-weight: 700;
+        // //   font-size: 30px;
+        // //   color: rgb(23, 23, 49);
+        // }
+        
+        input, textarea {
+          width: 100%;
+          border: 1px solid $l-two;
+          padding: 10px;
+          font-size: 20px;
+          border-radius: 25px 0px 0px 25px;
+        
+          //border-radius: 5px;
+        }
+
+        textarea {
+          height: 200px;
+          overflow: none;
+        }
+
+        button {
+          width: 250px;
+          background-color: $l-two;
+          color: $d-four;
+          font-weight: bold;
+          font-size: 20px;
+          border-radius:  0px 25px 25px 0px;
+          border: 1px solid $l-two;
+          font-weight: 500;
+        }
+        
+        .error {
+          color: rgb(241, 11, 43);
+          font-weight: 600;
+          font-size: 20px;
+          letter-spacing: 0.5px;
+        }
+        
+}
+
+
+button.submit-button, .form-group button {
+  width: 250px;
+  background-color: $l-two;
+  color: $d-four;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius:  25px;
+  border: 1px solid $l-two;
+  font-weight: 500;
+  padding: 10px;
+  margin: 20px;
+  float: right;
+}
+
+form button:hover, form button:focus, button.submit-button:hover, button.submit-button:focus, .form-group button:focus {
+  border: 1px solid $l-two;
+  background-color: white;
+  color: $d-three;
+}
+
+
+form.recipe-editor {
+  margin-top: 50px;
+  
+  legend {
+    font-size: 20px;
+  }
+  .form-group {
+    margin-top: 50px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    legend {
+      font-weight: bold;
+      padding: 0 10px;
+    }
+    .item {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      label {
+        font-size: 20px;
+      }
+    }
+  }
 }
