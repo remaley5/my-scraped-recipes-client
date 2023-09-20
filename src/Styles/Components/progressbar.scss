@@ -1,7 +1,20 @@
+$font-stack: Helvetica, san-serif;
+$l-one:  rgb(253, 231, 239);
+$l-two: rgb(251, 183, 195);
+$l-three: rgb(247, 247, 248);
+$m-one: rgb(230, 122, 122);
+$m-two: rgb(245, 144, 158);
+$d-one: rgb(0, 79, 122);
+$d-two: rgb(47, 12, 12); // rgb(22, 0, 66);
+$d-three: rgb(151, 85, 85);
+$d-four: rgb(47, 12, 12);
+
+
 .progressbar {
     display: flex;
     flex-direction: row;
-    padding-left: 10%;
+    margin-left: 0px;
+    //padding-left: 10%;
     // border-bottom: 3px solid rgb(58, 58, 108);
     font-size: 20px;
     font-weight: bold;
@@ -25,14 +38,24 @@
         }
     }
 
-    li.current {
-        border: 5px solid pink;
+    li.active {
+        border: 5px solid $l-two;
         background-color: white;
     }
 
-    li:not(.current) {
+    li.disabled {
         border: 5px solid rgb(159, 158, 158);
         background-color: rgb(203, 200, 200);
+    }
+    li.clickable {
+        border: 5px solid $m-one;
+        background-color: $l-two;
+        color: $d-four;
+    }
+    li.clickable:hover,  li.clickable:focus {
+        border-color: $m-one;
+        color: $d-three;
+        background-color: white;
     }
     li.third,
     li.second {

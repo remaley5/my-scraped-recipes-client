@@ -23,17 +23,17 @@ function CreateRecipes() {
             <div>
                 
             <ul className="progressbar">
-                <li className="first current">
+                <li className="first active">
                     <button >
                         Search Recipes
                     </button>
                 </li>
-                <li className="second">
+                <li className="second disabled">
                     <button disabled="true">
                         Edit Ingredients
                     </button>
                 </li>
-                <li className="third" disabled="true"><button disabled="true">Edit Instructions</button></li>
+                <li className="third disabled" disabled="true"><button disabled="true">Edit Instructions</button></li>
             </ul>
                 <div className="search-top">
                     <SearchForm

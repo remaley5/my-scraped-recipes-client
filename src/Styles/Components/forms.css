@@ -7,7 +7,7 @@ form .form-item {
 form label {
   margin-bottom: 0.25rem;
 }
-form input {
+form input, form textarea {
   padding: 0.5rem;
 }
 form .field-error {
@@ -33,12 +33,16 @@ form .search-form {
 form .control-wrap {
   display: flex;
 }
-form input {
+form input, form textarea {
   width: 100%;
   border: 1px solid rgb(251, 183, 195);
   padding: 10px;
   font-size: 20px;
   border-radius: 25px 0px 0px 25px;
+}
+form textarea {
+  height: 200px;
+  overflow: none;
 }
 form button {
   width: 250px;
@@ -57,7 +61,7 @@ form .error {
   letter-spacing: 0.5px;
 }
 
-button.submit-button {
+button.submit-button, .form-group button {
   width: 250px;
   background-color: rgb(251, 183, 195);
   color: rgb(47, 12, 12);
@@ -71,10 +75,36 @@ button.submit-button {
   float: right;
 }
 
-form button:hover, form button:focus, button.submit-button:hover, button.submit-button:focus {
+form button:hover, form button:focus, button.submit-button:hover, button.submit-button:focus, .form-group button:focus {
   border: 1px solid rgb(251, 183, 195);
   background-color: white;
   color: rgb(151, 85, 85);
+}
+
+form.recipe-editor {
+  margin-top: 50px;
+}
+form.recipe-editor legend {
+  font-size: 20px;
+}
+form.recipe-editor .form-group {
+  margin-top: 50px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+form.recipe-editor .form-group legend {
+  font-weight: bold;
+  padding: 0 10px;
+}
+form.recipe-editor .form-group .item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+form.recipe-editor .form-group .item label {
+  font-size: 20px;
 }
 
 /*# sourceMappingURL=forms.css.map */

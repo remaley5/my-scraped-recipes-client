@@ -18,7 +18,7 @@
 .search-form {
   background-color: white;
   padding: 50px;
-  margin: 7%;
+  margin: 7% 0;
   border-radius: 50px;
 }
 .search-form label {
@@ -38,7 +38,7 @@
 }
 
 .results-wrap {
-  margin: 7%;
+  margin: 7% 0;
 }
 
 /*# sourceMappingURL=main.css.map */

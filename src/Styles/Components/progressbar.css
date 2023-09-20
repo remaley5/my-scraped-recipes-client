@@ -1,7 +1,7 @@
 .progressbar {
   display: flex;
   flex-direction: row;
-  padding-left: 10%;
+  margin-left: 0px;
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 0px;
@@ -23,13 +23,23 @@
   font-weight: bold;
   font-size: 25px;
 }
-.progressbar li.current {
-  border: 5px solid pink;
+.progressbar li.active {
+  border: 5px solid rgb(251, 183, 195);
   background-color: white;
 }
-.progressbar li:not(.current) {
+.progressbar li.disabled {
   border: 5px solid rgb(159, 158, 158);
   background-color: rgb(203, 200, 200);
+}
+.progressbar li.clickable {
+  border: 5px solid rgb(230, 122, 122);
+  background-color: rgb(251, 183, 195);
+  color: rgb(47, 12, 12);
+}
+.progressbar li.clickable:hover, .progressbar li.clickable:focus {
+  border-color: rgb(230, 122, 122);
+  color: rgb(151, 85, 85);
+  background-color: white;
 }
 .progressbar li.third,
 .progressbar li.second {

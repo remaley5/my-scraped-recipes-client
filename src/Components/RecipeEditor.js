@@ -34,14 +34,14 @@ function RecipeEditor({ updateIngredients, updateSteps, handleFormProgress, step
             {/* <button onClick={() => handleFormProgress(progress === 'EDIT_STEPS' ? 'EDIT_INGREDIENTS' : 'SEARCH')}>Go back</button> */}
 
             <ul className="progressbar">
-                <li className="first active">
+                <li className="first clickable">
                     <button
                         disabled={false}
                         onClick={(event) => handleFormProgress(event, 'SEARCH')}>
                         Search Recipes
                     </button>
                 </li>
-                <li className={progress === 'EDIT_INGREDIENTS' ? "second current" : "second active"}>
+                <li className={progress === 'EDIT_INGREDIENTS' ? "second active" : "second clickable"}>
                     <button
                         disabled={progress === 'EDIT_INGREDIENTS' ? true : false}
                         onClick={(event) => handleFormProgress(event, 'EDIT_INGREDIENTS')}
@@ -49,7 +49,7 @@ function RecipeEditor({ updateIngredients, updateSteps, handleFormProgress, step
                         Edit Ingredients
                     </button>
                 </li>
-                <li className={progress === 'EDIT_STEPS' ? "third current" : "third"}>Edit Instructions</li>
+                <li className={progress === 'EDIT_STEPS' ? "third active" : "third disabled"}>Edit Instructions</li>
             </ul>
 
             <form className="recipe-editor">
@@ -78,7 +78,7 @@ function RecipeEditor({ updateIngredients, updateSteps, handleFormProgress, step
                                 idx={keyName}
                                 handleStepChange={handleStepChange}
                             />)}
-                        <button onClick={handleSaveRecipe}>Save Recipe</button>
+                        <button onClick={handleSaveRecipe} className="submit-button">Save Recipe</button>
                     </div>
                 }
             </form>

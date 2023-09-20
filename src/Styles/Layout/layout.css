@@ -65,7 +65,7 @@ body header nav .right-nav button:hover, body header nav .right-nav button:focus
   color: rgb(151, 85, 85);
 }
 body main {
-  margin: auto;
+  margin: 200px 7%;
   padding-left: 10%;
   padding-right: 10%;
 }

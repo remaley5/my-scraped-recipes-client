@@ -22,7 +22,7 @@ form {
         margin-bottom: 0.25rem;
     }
 
-    input {
+    input, textarea {
         padding: 0.5rem;
     }
 
@@ -69,7 +69,7 @@ form {
         // //   color: rgb(23, 23, 49);
         // }
         
-        input {
+        input, textarea {
           width: 100%;
           border: 1px solid $l-two;
           padding: 10px;
@@ -78,7 +78,12 @@ form {
         
           //border-radius: 5px;
         }
-        
+
+        textarea {
+          height: 200px;
+          overflow: none;
+        }
+
         button {
           width: 250px;
           background-color: $l-two;
@@ -100,7 +105,7 @@ form {
 }
 
 
-button.submit-button {
+button.submit-button, .form-group button {
   width: 250px;
   background-color: $l-two;
   color: $d-four;
@@ -114,8 +119,37 @@ button.submit-button {
   float: right;
 }
 
-form button:hover, form button:focus, button.submit-button:hover, button.submit-button:focus {
+form button:hover, form button:focus, button.submit-button:hover, button.submit-button:focus, .form-group button:focus {
   border: 1px solid $l-two;
   background-color: white;
   color: $d-three;
+}
+
+
+form.recipe-editor {
+  margin-top: 50px;
+  
+  legend {
+    font-size: 20px;
+  }
+  .form-group {
+    margin-top: 50px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    legend {
+      font-weight: bold;
+      padding: 0 10px;
+    }
+    .item {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      label {
+        font-size: 20px;
+      }
+    }
+  }
 }
