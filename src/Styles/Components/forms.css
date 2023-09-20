@@ -26,5 +26,55 @@ form .submit {
   text-transform: uppercase;
   font-weight: 500;
 }
+form .search-form {
+  display: flex;
+  flex-direction: column;
+}
+form .control-wrap {
+  display: flex;
+}
+form input {
+  width: 100%;
+  border: 1px solid rgb(251, 183, 195);
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 25px 0px 0px 25px;
+}
+form button {
+  width: 250px;
+  background-color: rgb(251, 183, 195);
+  color: rgb(47, 12, 12);
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0px 25px 25px 0px;
+  border: 1px solid rgb(251, 183, 195);
+  font-weight: 500;
+}
+form .error {
+  color: rgb(241, 11, 43);
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+}
+
+button.submit-button {
+  width: 250px;
+  background-color: rgb(251, 183, 195);
+  color: rgb(47, 12, 12);
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 25px;
+  border: 1px solid rgb(251, 183, 195);
+  font-weight: 500;
+  padding: 10px;
+  margin: 20px;
+  float: right;
+}
+
+form button:hover, form button:focus, button.submit-button:hover, button.submit-button:focus {
+  border: 1px solid rgb(251, 183, 195);
+  background-color: white;
+  color: rgb(151, 85, 85);
+}
 
 /*# sourceMappingURL=forms.css.map */

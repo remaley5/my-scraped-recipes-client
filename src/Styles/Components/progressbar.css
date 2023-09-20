@@ -1,0 +1,50 @@
+.progressbar {
+  display: flex;
+  flex-direction: row;
+  padding-left: 10%;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+.progressbar button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+.progressbar li {
+  overflow: hidden;
+  border-radius: 0px 30px 30px 0px;
+}
+.progressbar li .number {
+  font-weight: bold;
+  font-size: 25px;
+}
+.progressbar li.current {
+  border: 5px solid pink;
+  background-color: white;
+}
+.progressbar li:not(.current) {
+  border: 5px solid rgb(159, 158, 158);
+  background-color: rgb(203, 200, 200);
+}
+.progressbar li.third,
+.progressbar li.second {
+  padding: 20px 50px 20px 80px;
+  margin-left: -80px;
+}
+.progressbar li.first {
+  padding: 20px 50px 20px 50px;
+  z-index: 2;
+}
+.progressbar li.second {
+  z-index: 1;
+}
+.progressbar li.third {
+  z-index: 0;
+}
+
+/*# sourceMappingURL=progressbar.css.map */

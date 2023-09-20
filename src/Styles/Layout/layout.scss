@@ -70,12 +70,12 @@ body {
                     color: black;
                     border: 3px solid $l-two;
                 }
-                a:hover {
+                a:hover, a:focus {
                     border: 3px solid $d-one;
                     background-color: $d-one;
                     color: white
                 }
-                button:hover {
+                button:hover, button:focus {
                     background-color: white;
                     border: 3px solid $d-three;
                     color: $d-three;
@@ -86,7 +86,9 @@ body {
     }
 
     main {
-        margin-bottom: 100px;
+        margin: auto;
+        padding-left: 10%;
+        padding-right: 10%;
     }
 
     footer {
@@ -125,7 +127,7 @@ body {
         }
     }
 
-    a .logo:hover {
+    a .logo:hover, a .logo:focus {
         .text {
             color: black;
         }
@@ -137,8 +139,5 @@ body {
             background-color: $d-one;
 
         }
-    }
-    main {
-        padding: 7%; 
     }
 }

@@ -4,8 +4,9 @@ import SearchForm from './RecipeSearch/SearchForm';
 import RecipeEditor from './RecipeEditor';
 import React, {useEffect} from 'react';
 import { useSearchRecipe } from './hooks/useSearchRecipe';
-import '../Styles/search.css';
+import '../Styles/Components/displayrecipe.css';
 import '../Styles/Components/forms.css';
+import '../Styles/Components/progressbar.css'
 
 function CreateRecipes() {
     const { loading, error, steps, ingredients, progress, handleSearchSubmit, updateIngredients, updateSteps, handleFormProgress,  checkLocalStorage} = useSearchRecipe();
@@ -17,17 +18,24 @@ function CreateRecipes() {
 
   return (
     <div>
-        <h1 className="create-heading"> Create your Recipe </h1>
+        <h1 className="create-heading"> Recipe Clipper </h1>
         {progress === 'SEARCH' ? (
             <div>
-                <ul className="progressbar">
-                    <li className="first current">Search Recipe</li>
-                    <li className="second"> Edit Ingredients</li>
-                    <li className="third">Edit Instructions</li>
-                </ul>
+                
+            <ul className="progressbar">
+                <li className="first current">
+                    <button >
+                        Search Recipes
+                    </button>
+                </li>
+                <li className="second">
+                    <button disabled="true">
+                        Edit Ingredients
+                    </button>
+                </li>
+                <li className="third" disabled="true"><button disabled="true">Edit Instructions</button></li>
+            </ul>
                 <div className="search-top">
-                    <h2 id="search-recipe-label">Search by URL</h2>
-
                     <SearchForm
                         loading={loading}
                         error={error}
@@ -35,7 +43,7 @@ function CreateRecipes() {
                     />
                 </div>
                 <div className="results-wrap">
-                    <h2>Recipe</h2>
+                    <h2>Here's what we found</h2>
                     <Steps steps={steps}/>
 
                     <Ingredients ingredients={ingredients}/>
